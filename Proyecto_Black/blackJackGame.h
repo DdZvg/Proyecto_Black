@@ -17,8 +17,9 @@ private:
 public:
 	blackJackGame();
 	void playGame();
-	void displayScores();
-	void resetScores();
 
+	void displayScores();
+
+	void resetScores();
 };
 

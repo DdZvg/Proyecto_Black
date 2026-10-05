@@ -24,7 +24,9 @@ bool Carta::isOculto() const {
 	return this->oculto;
 }
 void Carta::setPosicion(int x, int y) {
+	//posiciones
 	posX = x;
+    
 	posY = y;
 }
 void Carta::setOculta(bool estado) {
