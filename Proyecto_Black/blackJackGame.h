@@ -13,11 +13,13 @@ private:
 	int dealerWins;
 	int ties;
 	string playerName;
+	int numero;
 
 public:
 	blackJackGame();
 	void playGame();
 	void displayScores();
 	void resetScores();
+
 };
 
