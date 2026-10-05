@@ -29,14 +29,5 @@
     <ClInclude Include="blackJackGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Carta.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Consola.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-=======
->>>>>>> 3b13b1475b75e9db7155a770ea72da55d9ada962
   </ItemGroup>
 </Project>
