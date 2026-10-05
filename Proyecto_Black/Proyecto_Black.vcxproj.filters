@@ -21,9 +21,18 @@
     <ClCompile Include="blackJackGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Carta.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blackJackGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Carta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Consola.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
