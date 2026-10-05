@@ -6,13 +6,14 @@ using namespace std;
 
 class blackJackGame
 {
-protected:
+private:
 	int playerScore;
 	int dealerScore;
 	int playerWins;
 	int dealerWins;
 	int ties;
 	string playerName;
+	int numero;
 
 public:
 	blackJackGame();
