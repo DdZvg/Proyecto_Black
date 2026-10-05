@@ -14,7 +14,6 @@ private:
 	int ties;
 	string playerName;
 	int numero;
-
 public:
 	blackJackGame();
 	void playGame();
