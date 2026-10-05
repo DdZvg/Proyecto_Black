@@ -20,6 +20,7 @@ public:
 	void playGame();
 	void displayScores();
 	void resetScores();
+	void delearScore();
 
 };
 
