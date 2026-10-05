@@ -1,4 +1,5 @@
 #include "Carta.h"
+<<<<<<< HEAD
 #include "Consola.h"
 using namespace std;
 // Constructor de la clase Carta
@@ -65,3 +66,5 @@ void Carta::dibujarBloque() const {
     Consola::moverCursor(posX, posY + 4);
     std::cout << col << "└─────────┘" << Consola::RESET;
 }
+=======
+>>>>>>> 3b13b1475b75e9db7155a770ea72da55d9ada962
