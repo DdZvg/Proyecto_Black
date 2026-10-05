@@ -12,6 +12,7 @@ protected:
 	int playerWins;
 	int dealerWins;
 	int ties;
+	string playerName;
 
 public:
 	blackJackGame();
