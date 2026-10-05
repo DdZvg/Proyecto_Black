@@ -6,7 +6,7 @@ using namespace std;
 
 class blackJackGame
 {
-private:
+protected:
 	int playerScore;
 	int dealerScore;
 	int playerWins;
@@ -18,5 +18,6 @@ public:
 	void playGame();
 	void displayScores();
 	void resetScores();
+
 };
 
