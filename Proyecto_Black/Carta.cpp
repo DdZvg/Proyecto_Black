@@ -5,7 +5,7 @@
 using namespace std;
 // CONSTRUCTOR
 
-// Inicializa las propiedades de la carta (palo, valor, puntos, posición inicial en la consola y estado oculta/visible)
+// Inicializa las propiedades de la carta (palo, valor, puntos, posiciÃ³n inicial en la consola y estado oculta/visible)
 Carta::Carta(string palo, string valor, int puntos, int posX, int posY, bool oculto) {
     this->palo = palo;
     this->valor = valor;
@@ -16,7 +16,7 @@ Carta::Carta(string palo, string valor, int puntos, int posX, int posY, bool ocu
 }
 
 
-// MÉTODOS GETTER (Lectura de atributos)
+// MÃ‰TODOS GETTER (Lectura de atributos)
 
 
 string Carta::getPalo() const {
@@ -36,7 +36,7 @@ bool Carta::isOculto() const {
 }
 
 
-// MÉTODOS SETTER (Modificación de estado)
+// MÃ‰TODOS SETTER (ModificaciÃ³n de estado)
 
 
 // Actualiza las coordenadas de la carta en la pantalla de la consola
@@ -54,49 +54,48 @@ void Carta::setOculta(bool estado) {
 // DIBUJO Y FORMATO EN CONSOLA
 
 
-// Determina el código de color ANSI según el estado o el palo de la carta
+// Determina el cÃ³digo de color ANSI segÃºn el estado o el palo de la carta
 string Carta::getColor() const {
-    if (oculto) return Consola::AZUL;
+    if (oculto) return Consola::AZUL_OSCURO;
     if (palo == "Corazones" || palo == "Diamantes") return Consola::ROJO;
     return Consola::BLANCO;
 }
 
-// Renderiza la carta gráficamente en la posición (posX, posY) de la consola mediante arte ASCII
+// Renderiza la carta grÃ¡ficamente en la posiciÃ³n (posX, posY) de la consola mediante arte ASCII
 void Carta::dibujarBloque() const {
     string col = getColor();
 
-    // Linea 0: Borde superior del marco
+    // LÃ­nea 0: Borde superior
     Consola::moverCursor(posX, posY);
-    cout << col << "???????????" << Consola::RESET;
+    cout << col << "+---------+" << Consola::RESET;
 
     Consola::moverCursor(posX, posY + 1);
 
     if (oculto) {
-        // Dibuja el reverso de la carta si está boca abajo
-        cout << col << "???????????" << Consola::RESET;
+        // Reverso de la carta boca abajo con trama de asteriscos o almohadillas (#)
+        cout << col << "|#########|" << Consola::RESET;
         Consola::moverCursor(posX, posY + 2);
-        cout << col << "???? ? ????" << Consola::RESET;
+        cout << col << "|   ?     |" << Consola::RESET;
         Consola::moverCursor(posX, posY + 3);
-        cout << col << "???????????" << Consola::RESET;
+        cout << col << "|#########|" << Consola::RESET;
     }
     else {
-        // Formatea el valor para que ocupe 2 caracteres y no desalinee el marco
         string valForm = (valor.length() == 1) ? valor + " " : valor;
-        string simPalo = palo.substr(0, 1); // Extrae la inicial del palo (C, D, P, T)
+        string simPalo = palo.substr(0, 1); // C, D, P, T
 
-        // Linea 1: Valor en la esquina superior izquierda
-        cout << col << "? " << valForm << "      ?" << Consola::RESET;
+        // LÃ­nea 1: Valor esquina superior izquierda
+        cout << col << "| " << valForm << "      |" << Consola::RESET;
 
-        // Linea 2: Símbolo/Inicial del palo en el centro
+        // LÃ­nea 2: SÃ­mbolo del palo en el centro
         Consola::moverCursor(posX, posY + 2);
-        cout << col << "?    " << simPalo << "    ?" << Consola::RESET;
+        cout << col << "|    " << simPalo << "    |" << Consola::RESET;
 
-        // Linea 3: Valor en la esquina inferior derecha
+        // LÃ­nea 3: Valor esquina inferior derecha
         Consola::moverCursor(posX, posY + 3);
-        cout << col << "?      " << valForm << "?" << Consola::RESET;
+        cout << col << "|      " << valForm << "|" << Consola::RESET;
     }
 
-    // Linea 4: Borde inferior del marco
+    // LÃ­nea 4: Borde inferior
     Consola::moverCursor(posX, posY + 4);
-    cout << col << "???????????" << Consola::RESET;
+    cout << col << "+---------+" << Consola::RESET;
 }
