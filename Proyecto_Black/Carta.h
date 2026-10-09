@@ -18,11 +18,11 @@ public:
 	//constructor de la clase Carta
 	Carta(string palo, string valor, int puntos, int posX, int posY, bool oculto);
 	// Getters y Setters
-	string getPalo(); const
-		string getValor(); const
-		int getPuntos(); const
-		bool isOculto(); const
-		void setPosicion(int x, int y);
+	string getPalo() const;
+	string getValor() const;
+	int getPuntos() const;
+	bool isOculto() const;
+	void setPosicion(int x, int y);
 	void setOculta(bool estado);
 	// Métodos visuales
 	string getColor() const;

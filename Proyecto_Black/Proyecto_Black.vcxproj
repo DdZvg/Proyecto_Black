@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="blackJackGame.h" />
     <ClInclude Include="Carta.h" />
+    <ClInclude Include="Consola.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
