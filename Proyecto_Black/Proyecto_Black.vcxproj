@@ -111,6 +111,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,11 +143,13 @@
     <ClCompile Include="blackJackGame.cpp" />
     <ClCompile Include="Carta.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="testCarta.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blackJackGame.h" />
     <ClInclude Include="Carta.h" />
     <ClInclude Include="Consola.h" />
+    <ClInclude Include="testCarta.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

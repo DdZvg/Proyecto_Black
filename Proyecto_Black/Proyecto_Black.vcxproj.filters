@@ -24,12 +24,21 @@
     <ClCompile Include="Carta.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="testCarta.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blackJackGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Carta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Consola.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testCarta.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

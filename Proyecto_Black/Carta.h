@@ -21,12 +21,14 @@ public:
 	string getPalo() const;
 	string getValor() const;
 	int getPuntos() const;
+	string getSimboloPalo() const;
 	bool isOculto() const;
 	void setPosicion(int x, int y);
 	void setOculta(bool estado);
 	// Métodos visuales
 	string getColor() const;
 	void dibujarBloque() const;
+	string etiqueta() const;
 };
 
 #endif // CARTA_H
