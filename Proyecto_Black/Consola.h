@@ -33,7 +33,11 @@ namespace Consola {
 #ifdef _WIN32
         SetConsoleOutputCP(CP_UTF8);
 #endif
-        cout << "\033[2J\033[1;1H";
+#ifdef _WIN32
+        system("cls");
+#else
+        system("clear");
+#endif
     }
 
     // Mueve el cursor a las coordenadas (x, y) de la consola
