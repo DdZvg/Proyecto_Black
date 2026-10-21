@@ -28,7 +28,7 @@ int Mano::calcularPuntos() const {
 	return total;
 }
 
-	void Mano::mostrarMano(bool ocultarPrimera) const {
+	void Mano::mostrarMano(bool ocultarPrimera, int y) const {
 		const int ANCHO_CARTA = 12;/// Ancho de cada carta en caracteres
 			const int X_INICIAL = 5;/// Posición X inicial para dibujar la primera carta
 
@@ -39,8 +39,11 @@ int Mano::calcularPuntos() const {
 			if (ocultarPrimera && i == 0) {
 				carta.setOculta(true);
 			}
-			carta.setPosicion(X_INICIAL + i * ANCHO_CARTA, 3);// Ajusta la posición de la carta en la consola
+			carta.setPosicion(X_INICIAL +static_const<int>(i) * ANCHO_CARTA, y);// Ajusta la posición de la carta en la consola
+
 			carta.dibujarBloque();// Dibuja la carta en la consola
+
+			Consola::moverCursor(1, y + 6); // Mueve el cursor a la siguiente línea después de dibujar la carta)
 		}
 	}
 
