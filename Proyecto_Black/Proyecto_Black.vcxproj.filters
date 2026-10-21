@@ -27,6 +27,9 @@
     <ClCompile Include="testCarta.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mano.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blackJackGame.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="testCarta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mano.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
