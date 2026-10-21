@@ -39,11 +39,12 @@ int Mano::calcularPuntos() const {
 			if (ocultarPrimera && i == 0) {
 				carta.setOculta(true);
 			}
-			carta.setPosicion(X_INICIAL +static_const<int>(i) * ANCHO_CARTA, y);// Ajusta la posición de la carta en la consola
+			carta.setPosicion(X_INICIAL + static_cast<int>(i) * ANCHO_CARTA, y);// Ajusta la posición de la carta en la consola
 
 			carta.dibujarBloque();// Dibuja la carta en la consola
 
 			Consola::moverCursor(1, y + 6); // Mueve el cursor a la siguiente línea después de dibujar la carta)
+
 		}
 	}
 
