@@ -32,7 +32,7 @@ bool Jugador::hacerApuesta(int cantidad) {
 }
 	//el jugador gana 
 	void Jugador::ganarApuesta(){
-		this->fichas = this->fichas + (this->apuestaActual*2):Participante(nombre);
+		this->fichas = this->fichas + (this->apuestaActual*2);
 		this->apuestaActual = 0;
 	}
 	//el jugador pierde
@@ -54,7 +54,7 @@ bool Jugador::hacerApuesta(int cantidad) {
 		return this->apuestaActual;
 	}
 
-	string Jugador::getRol() conts {
+	string Jugador::getRol() const {
 		return "Jugador";
 	}
 

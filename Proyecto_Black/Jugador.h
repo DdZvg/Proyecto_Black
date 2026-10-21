@@ -18,9 +18,9 @@ public:
 	void perderApuesta();
 
 	//getters
-	int getFichas();
-	int getApuestaActual();
-	string getRol();
+	int getFichas() const;
+	int getApuestaActual() const;
+	string getRol() const;
 
 };
 

@@ -12,9 +12,9 @@ public:
 	Participante(const string nombre);
 
 	string getNombre() const;
-	Mano& getMano() const;
-	void recibirCarta(Carta& c);
+	const Mano& getMano() const; // Corregido: 'const Mano&'
 	bool estaBusted() const;
+	void recibirCarta(const Carta& c); // Corregido: 'const Carta&'
 
 
 };

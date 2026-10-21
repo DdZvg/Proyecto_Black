@@ -34,8 +34,6 @@ int main() {
     }
 
     Menu menu("BlackProject");
-    Menu menu("BlackProject");
-    Menu menu("BlackProject");
     menu.mostrarBienvenida();
 
     return 0;
