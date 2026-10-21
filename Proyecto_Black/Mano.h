@@ -1,11 +1,12 @@
 #pragma once
 #include <vector>
 #include "Carta.h"
-
+#include <string>
+using namespace std;
 class Mano
 {
 private:
-	std::vector<Carta> cartas;
+	vector<Carta> cartas;
 public:
 	Mano();
 
@@ -19,7 +20,7 @@ public:
 	void limpiarMano();
 	
 	// Getter de el vector
-	std::vector<Carta> getCartas() const;
+	vector<Carta> getCartas() const;
 
 };
 
