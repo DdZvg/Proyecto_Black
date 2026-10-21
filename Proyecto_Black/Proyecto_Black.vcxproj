@@ -142,9 +142,12 @@
   <ItemGroup>
     <ClCompile Include="blackJackGame.cpp" />
     <ClCompile Include="Carta.cpp" />
+    <ClCompile Include="Dealer.cpp" />
+    <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mano.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Participante.cpp" />
     <ClCompile Include="testCarta.cpp" />
     <ClCompile Include="testMenu.cpp" />
     <ClCompile Include="Validador.cpp" />
@@ -153,8 +156,11 @@
     <ClInclude Include="blackJackGame.h" />
     <ClInclude Include="Carta.h" />
     <ClInclude Include="Consola.h" />
+    <ClInclude Include="Dealer.h" />
+    <ClInclude Include="Jugador.h" />
     <ClInclude Include="Mano.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Participante.h" />
     <ClInclude Include="testCarta.h" />
     <ClInclude Include="testMenu.h" />
     <ClInclude Include="Validador.h" />
