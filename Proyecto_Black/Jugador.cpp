@@ -54,9 +54,6 @@ bool Jugador::hacerApuesta(int cantidad) {
 		return this->apuestaActual;
 	}
 
-	string Jugador::getRol() const {
-		return "Jugador";
-	}
 
 
 

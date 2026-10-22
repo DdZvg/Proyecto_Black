@@ -20,7 +20,6 @@ public:
 	//getters
 	int getFichas() const;
 	int getApuestaActual() const;
-	string getRol() const;
 
 };
 
