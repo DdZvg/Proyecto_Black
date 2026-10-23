@@ -4,11 +4,10 @@
 #include "Participante.h"
 
 
-class Dealer{
-
-private:
+class Dealer:public Participante{
 
 public:
+	Dealer();
 	bool debePedirCarta() const;
 };
 #endif

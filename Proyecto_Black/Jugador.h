@@ -11,11 +11,13 @@ private:
 
 public:
 	Jugador(string nombre, int fichas);
+
 	//metodos apuesta 
 	bool hacerApuesta(int cantidad);
 	void ganarApuesta();
 	void empatarApuesta();
 	void perderApuesta();
+	bool doblarApuesta();
 
 	//getters
 	int getFichas() const;

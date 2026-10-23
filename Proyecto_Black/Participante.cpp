@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Participante.h"
 
 using namespace std;
@@ -17,6 +16,7 @@ const Mano& Participante::getMano() const {
 	return this->mano;
 
 }
+
 bool Participante:: estaBusted() const {
 	return this->mano.calcularPuntos() > 21;
 

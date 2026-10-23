@@ -1,5 +1,4 @@
 #include "Jugador.h"
-#include <iostream>
 using namespace std;
 
 //contructor
@@ -9,26 +8,25 @@ Jugador::Jugador(string nombre, int fichas):Participante(nombre){
 }
 
 //Metodos de Apuesta
-
 bool Jugador::hacerApuesta(int cantidad) {
 	if (cantidad <= 0) {
 		return false;
 	}
 
+	
 	if (cantidad > this->fichas) {
 		return false;
 	}
 
+	// Solo se puede apostar una vez por ronda
 	if (this->apuestaActual > 0) {
 		return false;
 	}
 
-	if (cantidad > 0 && cantidad <= this->fichas && this->apuestaActual == 0) {
+	
 		this->fichas = this->fichas - cantidad;
 		this->apuestaActual = cantidad;
 		return true;
-	}
-	return false;
 }
 	//el jugador gana 
 	void Jugador::ganarApuesta(){
@@ -43,6 +41,24 @@ bool Jugador::hacerApuesta(int cantidad) {
 	void Jugador::empatarApuesta() {
 		this->fichas = this->fichas + this->apuestaActual;
 		this->apuestaActual = 0;
+	}
+
+
+	// Dobla la apuesta actual (descuenta otra vez la misma cantidad)
+	bool Jugador::doblarApuesta() {
+		// Debe haber una apuesta en curso
+		if (this->apuestaActual <= 0) {
+			return false;
+		}
+
+		// Debe tener fichas suficientes para igualar la apuesta
+		if (this->apuestaActual > this->fichas) {
+			return false;
+		}
+
+		this->fichas = this->fichas - this->apuestaActual;
+		this->apuestaActual = this->apuestaActual * 2;
+		return true;
 	}
 
 	//getters
