@@ -146,6 +146,7 @@
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mano.cpp" />
+    <ClCompile Include="Mazo.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Participante.cpp" />
     <ClCompile Include="testCarta.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Dealer.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Mano.h" />
+    <ClInclude Include="Mazo.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Participante.h" />
     <ClInclude Include="testCarta.h" />
