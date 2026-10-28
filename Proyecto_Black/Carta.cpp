@@ -6,12 +6,11 @@ using namespace std;
 // CONSTRUCTOR
 
 // Inicializa las propiedades de la carta (palo, valor, puntos, posición inicial en la consola y estado oculta/visible)
-Carta::Carta(string palo, string valor, int puntos, int posX, int posY, bool oculto) {
+Carta::Carta(string palo, string valor, int puntos, bool oculto) {
     this->palo = palo;
     this->valor = valor;
     this->puntos = puntos;
-    this->posX = posX;
-    this->posY = posY;
+
     this->oculto = oculto;
 }
 
@@ -39,21 +38,16 @@ bool Carta::isOculto() const {
 // MÉTODOS SETTER (Modificación de estado)
 
 
-// Actualiza las coordenadas de la carta en la pantalla de la consola
-void Carta::setPosicion(int x, int y) {
-    this->posX = x;
-    this->posY = y;
-}
 
 // Cambia la visibilidad de la carta (true = boca abajo, false = boca arriba)
 void Carta::setOculta(bool estado) {
     this->oculto = estado;
 }
 string Carta::getSimboloPalo() const {
-    if (palo == "Corazones" ) return "♥";
-    if (palo == "Diamantes") return "♦";
-    if (palo == "Tréboles") return "♣";
-    if (palo == "Picas") return "♠";
+    if (palo == "Corazones" || palo =="corazones") return "♥";
+    if (palo == "Diamantes" || palo == "diamantes") return "♦";
+    if (palo == "Treboles" || palo == "treboles") return "♣";
+    if (palo == "Picas" || palo == "picas") return "♠";
     return palo.substr(0, 1);
 }
 
@@ -70,7 +64,7 @@ string Carta::getColor() const {
 }
 
 // Renderiza la carta gráficamente en la posición (posX, posY) de la consola mediante arte ASCII
-void Carta::dibujarBloque() const {
+void Carta::dibujarBloque(int posX, int posY) const {
 	string color = getColor();
 	// bordes de la carta
 	string bordeSuperior = "┌─────────┐";
@@ -98,18 +92,16 @@ void Carta::dibujarBloque() const {
 		//linea 1, valor de esquina superior izquierda
 		Consola::moverCursor(posX, posY + 1);
 		cout << color << "|" << valIzq << "       |" << Consola::RESET;
-		//linea 2, espacio vacío
 
-		//linea 3, símbolo del palo en el centro
+		//linea 2, símbolo del palo en el centro
 		Consola::moverCursor(posX, posY + 2);
 		cout << color << "|    " << simPalo << "    |" << Consola::RESET;
-		//linea 4, espacio vacío
 
-		//linea 5, valor de esquina inferior derecha
+		//linea 3, valor de esquina inferior derecha
 		Consola::moverCursor(posX, posY + 3);
 		cout << color << "|       " << valDer << "|" << Consola::RESET;
     }
-	// línea 6, borde inferior
+	// línea 4, borde inferior
 	Consola::moverCursor(posX, posY + 4);
 	cout << color << bordeInferior << Consola::RESET;
 }

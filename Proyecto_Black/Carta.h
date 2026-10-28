@@ -10,24 +10,23 @@ protected: //por defecto los atributos son privados, pero se pueden heredar a ot
 	string palo;
 	string valor;
 	int puntos;
-	int posX;
-	int posY;
 	bool oculto;
+	// se eliminaron posX y posY ya que no son necesarios
+	// para la lógica de la carta, pero si para el dibujo en consola
 
 public:
 	//constructor de la clase Carta
-	Carta(string palo, string valor, int puntos, int posX, int posY, bool oculto);
+	Carta(string palo, string valor, int puntos, bool oculto);
 	// Getters y Setters
 	string getPalo() const;
 	string getValor() const;
 	int getPuntos() const;
 	string getSimboloPalo() const;
 	bool isOculto() const;
-	void setPosicion(int x, int y);
 	void setOculta(bool estado);
 	// Métodos visuales
 	string getColor() const;
-	void dibujarBloque() const;
+	void dibujarBloque(int posX, int posY) const;
 	string etiqueta() const;
 };
 
