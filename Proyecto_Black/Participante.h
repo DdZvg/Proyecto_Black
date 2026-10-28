@@ -6,16 +6,22 @@ using namespace std;
 class Participante{
 protected:
 	string nombre;
-	Mano mano;
+	vector<Mano>manos;
 
 public:
 	Participante(const string nombre);
 
 	string getNombre() const;
-	const Mano& getMano() const; // Corregido: 'const Mano&'
-	bool estaBusted() const;
-	void recibirCarta(const Carta& c); // Corregido: 'const Carta&'
+	const Mano& getMano(int indice) const; 
+	bool estaBusted(int indice = 0) const; 
+	void recibirCarta(const Carta& c, int indice = 0); // Corregido: 'const Carta&' and added indice parameter
 
+	int getNumManos() const; 
+
+	bool tieneBlackjack(int indice = 0) const; 
+
+	//deja la mano vacia al final de la ronda
+	void limpiarManos(); 
 
 };
 
