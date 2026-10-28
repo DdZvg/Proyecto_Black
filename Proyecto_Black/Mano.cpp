@@ -40,12 +40,14 @@ int Mano::calcularPuntos() const {
 				carta.setOculta(true);
 			}
 			int posX = X_INICIAL + static_cast<int>(i) * ANCHO_CARTA; // Calcula la posición X para la carta actual
-			int posY = y;
+			int posY = y;// Posición Y para dibujar la carta (constante para todas las cartas)
 
+			//se utiliza metodo de carta.h 
 			carta.dibujarBloque(posX, posY);// Dibuja la carta en la consola
 
 		}// Fin del bucle que recorre todas las cartas de la mano
 
+		//se utiliza la funcion de consola.h
 		Consola::moverCursor(1, y + 5); // Mueve el cursor a la siguiente línea después de dibujar la carta)
 	}
 

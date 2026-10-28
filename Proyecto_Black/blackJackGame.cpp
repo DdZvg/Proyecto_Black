@@ -3,7 +3,7 @@
 
 BlackJackGame::BlackJackGame(int numJugadores) : numJugadores(numJugadores) {
     for (int i = 0; i < numJugadores; ++i) {
-        jugadores.emplace_back("Jugador " + to_string(i + 1));
+        jugadores.emplace_back("Jugador " + to_string(i + 1), 1000);
     }
     mazos.emplace_back();
 }

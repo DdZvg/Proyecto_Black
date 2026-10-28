@@ -1,6 +1,9 @@
-#pragma once
+	#pragma once
 #ifndef PARTICIPANTE_H
 #define PARTICIPANTE_H
+#include <string>
+#include <vector>
+
 #include "Mano.h"
 using namespace std;
 class Participante{
