@@ -44,7 +44,7 @@ void Mazo::inicializarMazo() {
 
             Carta nuevaCarta(
                 palos[i], valores[j],
-                puntos, 0, 0, false
+                puntos, false
             );
 
             cartas.push_back(nuevaCarta);

@@ -39,9 +39,10 @@ int Mano::calcularPuntos() const {
 			if (ocultarPrimera && i == 0) {
 				carta.setOculta(true);
 			}
-			carta.setPosicion(X_INICIAL + static_cast<int>(i) * ANCHO_CARTA, y);// Ajusta la posición de la carta en la consola
+			int posX = X_INICIAL + static_cast<int>(i) * ANCHO_CARTA; // Calcula la posición X para la carta actual
+			int posY = y;
 
-			carta.dibujarBloque();// Dibuja la carta en la consola
+			carta.dibujarBloque(posX, posY);// Dibuja la carta en la consola
 
 		}// Fin del bucle que recorre todas las cartas de la mano
 
