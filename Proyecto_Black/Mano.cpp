@@ -46,7 +46,7 @@ int Mano::calcularPuntos() const {
 
 		}// Fin del bucle que recorre todas las cartas de la mano
 
-		Consola::moverCursor(1, y + 6); // Mueve el cursor a la siguiente línea después de dibujar la carta)
+		Consola::moverCursor(1, y + 5); // Mueve el cursor a la siguiente línea después de dibujar la carta)
 	}
 
 
