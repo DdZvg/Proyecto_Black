@@ -5,15 +5,19 @@
 
 using namespace std;
 
-Mazo::Mazo() {
-    inicializarMazo();
+Mazo::Mazo(int numMazos) {
+    inicializarMazo(numMazos);
     mezclar();
 }
 
 //las 52 cartas
-void Mazo::inicializarMazo() {
+//(6 mazos = 312 cartas)
+void Mazo::inicializarMazo(int numMazos) {
 
     cartas.clear();
+	// Si el número de mazos es menor que 1, se establece en 1
+    if (numMazos < 1) numMazos = 1;
+    cartas.reserve(52 * numMazos);
 
     string palos[4] = {
         "Corazones", "Diamantes",
@@ -25,29 +29,31 @@ void Mazo::inicializarMazo() {
         "7", "8", "9", "10", "J", "Q", "K"
     };
 
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 13; j++) {
+    for (int m = 0; m < numMazos; m++) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 13; j++) {
 
-            int puntos;
+                int puntos;
 
-            if (valores[j] == "A") {
-                puntos = 11;
+                if (valores[j] == "A") {
+                    puntos = 11;
+                }
+                else if (valores[j] == "J" ||
+                    valores[j] == "Q" ||
+                    valores[j] == "K") {
+                    puntos = 10;
+                }
+                else {
+                    puntos = stoi(valores[j]);
+                }
+
+                Carta nuevaCarta(
+                    palos[i], valores[j],
+                    puntos, false
+                );
+
+                cartas.push_back(nuevaCarta);
             }
-            else if (valores[j] == "J" ||
-                valores[j] == "Q" ||
-                valores[j] == "K") {
-                puntos = 10;
-            }
-            else {
-                puntos = stoi(valores[j]);
-            }
-
-            Carta nuevaCarta(
-                palos[i], valores[j],
-                puntos, false
-            );
-
-            cartas.push_back(nuevaCarta);
         }
     }
 }
