@@ -2,7 +2,8 @@
 
 using namespace std;
 
-Participante::Participante(string nombre) {
+Participante::Participante(const string& nombre) 
+{
 	this->nombre = nombre;
 	this->manos.push_back(Mano());
 }
@@ -12,7 +13,7 @@ string Participante:: getNombre() const {
 	return this->nombre;
 }
 
-int Participante::getNumManos() const {
+int Participante::getNumMano() const {
 	return static_cast<int>(this->manos.size());
 }
 
@@ -23,7 +24,7 @@ const Mano& Participante::getMano(int indice) const {
 }
 
 bool Participante::estaBusted(int indice) const {
-	if (indice < 0 || indice >= getNumManos()) {// Verificar si el índice es válido
+	if (indice < 0 || indice >= getNumMano()) {// Verificar si el índice es válido
 		return false;
 	}
 
@@ -31,7 +32,7 @@ bool Participante::estaBusted(int indice) const {
 }
 
 void Participante::recibirCarta(const Carta& c, int indice) {
-	if (indice < 0 || indice >= getNumManos()) {
+	if (indice < 0 || indice >= getNumMano()) {
 		return;
 	}
 
@@ -40,10 +41,11 @@ void Participante::recibirCarta(const Carta& c, int indice) {
 
 
 bool Participante::tieneBlackjack(int indice) const {
-	if (indice < 0 || indice >= getNumManos()) {
+	if (indice < 0 || indice >= getNumMano()) {
 		return false;
 	}
 
+	
 	const Mano& m = this->manos.at(indice);
 
 	return m.getCartas().size() == 2 &&

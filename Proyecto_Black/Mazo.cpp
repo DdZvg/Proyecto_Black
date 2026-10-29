@@ -76,5 +76,5 @@ Carta Mazo::tomarCarta() {
 // Cantidad de cartas restantes
 int Mazo::cartasRestantes() const {
 
-    return cartas.size();
+    return static_cast<int>(cartas.size());
 }

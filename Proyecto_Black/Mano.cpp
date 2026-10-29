@@ -1,6 +1,7 @@
 #include "Mano.h"
 #include "consola.h"
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
@@ -9,6 +10,16 @@ Mano::Mano() {}
 void Mano::agregarCarta(Carta c) {
 	cartas.push_back(c);
 }
+
+Carta Mano::quitarUltimaCarta() {
+	Carta carta = cartas.back();
+	cartas.pop_back();
+	return carta;
+}
+
+void Mano::marcarDeDivision() {
+}
+
 
 int Mano::calcularPuntos() const {
 	int total = 0; // Suma de puntos de todas las cartas
@@ -59,4 +70,5 @@ int Mano::calcularPuntos() const {
 	vector<Carta> Mano::getCartas() const {
 		return cartas; // Retorna el vector de cartas
 	}
+
 

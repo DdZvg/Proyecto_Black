@@ -3,29 +3,30 @@
 #define PARTICIPANTE_H
 #include <string>
 #include <vector>
-
 #include "Mano.h"
-using namespace std;
+
 class Participante{
 protected:
-	string nombre;
-	vector<Mano>manos;
+	std::string nombre;
+	std::vector<Mano> manos;
 
 public:
-	Participante(const string nombre);
+	Participante(const std::string& nombre);
+	virtual ~Participante() = default;
 
-	string getNombre() const;
+	std::string getNombre() const;
 	const Mano& getMano(int indice) const; 
-	bool estaBusted(int indice = 0) const; 
-	void recibirCarta(const Carta& c, int indice = 0); // Corregido: 'const Carta&' and added indice parameter
+	void recibirCarta(const Carta& c, int indice = 0); // Corregido: 'const Carta&'
+	bool estaBusted(int indice = 0) const;
 
-	int getNumManos() const; 
+	int getNumMano() const; 
 
 	bool tieneBlackjack(int indice = 0) const; 
 
 	//deja la mano vacia al final de la ronda
-	void limpiarManos(); 
+	virtual void limpiarManos(); 
 
 };
 
 #endif
+

@@ -11,6 +11,8 @@ public:
 	Mano();
 
 	void agregarCarta(Carta c);
+	Carta quitarUltimaCarta();
+	void marcarDeDivision();
 	int calcularPuntos() const;
 
 

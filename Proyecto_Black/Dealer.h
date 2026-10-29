@@ -3,11 +3,27 @@
 #define DEALER_H
 #include "Participante.h"
 
+class Dealer : public Participante{
+private:
+	bool cartaOcultaRevelada = false;
 
-    class Dealer : public Participante {
-    public:
-        Dealer();
-        bool debePedirCarta() const;
-    };
+public:
+	Dealer();
+	bool debePedirCarta() const;
+
+	Carta getCartaVisible() const;
+	void revelarCartaOculta();
+	void mostrarMano() const;
+	bool debeRevisarBlackjack() const;
+	bool ofreceSeguro() const;
+bool ofrecerSeguro() const;
+
+
+	void limpiarManos() override;
+};
 
 #endif
+
+
+
+
