@@ -3,33 +3,33 @@
 
 BlackJackGame::BlackJackGame(int numJugadores) : numJugadores(numJugadores) {
     for (int i = 0; i < numJugadores; ++i) {
-        jugadores.emplace_back("Jugador " + to_string(i + 1));
+        jugadores.emplace_back("Jugador " + to_string(i + 1), 1000);
     }
     mazos.emplace_back();
 }
 
 void BlackJackGame::ejecutar() {
-    // Lógica para ejecutar el flujo principal del juego
+    // Lgica para ejecutar el flujo principal del juego
 }
 
 void BlackJackGame::iniciarRonda() {
-    // Lógica para repartir cartas iniciales
+    // Lgica para repartir cartas iniciales
 }
 
 void BlackJackGame::turnoJugador() {
-    // Lógica para el turno del jugador (pedir, plantarse, etc.)
+    // Lgica para el turno del jugador (pedir, plantarse, etc.)
 }
 
 void BlackJackGame::turnoDealer() {
-    // Lógica para el turno del dealer
+    // Lgica para el turno del dealer
 }
 
 void BlackJackGame::doblarApuesta() {
-    // Lógica para doblar la apuesta del jugador
+    // Lgica para doblar la apuesta del jugador
 }
 
 void BlackJackGame::determinarGanador() {
-    // Comparación de puntos entre el dealer y los jugadores
+    // Comparacin de puntos entre el dealer y los jugadores
 }
 
 void BlackJackGame::resetearRonda() {

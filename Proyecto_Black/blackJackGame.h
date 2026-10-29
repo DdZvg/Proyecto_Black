@@ -7,6 +7,8 @@
 #include "Jugador.h"
 #include <vector>
 #include <string>
+#include "Mano.h"
+
 using namespace std;
 class BlackJackGame {
 protected:
