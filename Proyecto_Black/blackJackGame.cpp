@@ -5,7 +5,7 @@ BlackJackGame::BlackJackGame(int numJugadores) : numJugadores(numJugadores) {
     for (int i = 0; i < numJugadores; ++i) {
         jugadores.emplace_back("Jugador " + to_string(i + 1), 1000);
     }
-    mazos.emplace_back();
+    mazos.emplace_back(6); // zapato de 6 mazos (312 cartas) en un solo Mazo
 }
 
 void BlackJackGame::ejecutar() {
