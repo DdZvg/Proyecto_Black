@@ -30,6 +30,7 @@ bool Jugador::hacerApuesta(int cantidad) {
 	void Jugador::perderApuesta(int indice) {
 		if (indice >= 0 && indice < static_cast<int>(apuestas.size())) apuestas[indice] = 0;
 	}
+
 	//el jugador empata
 	void Jugador::empatarApuesta(int indice) {
 		if (indice < 0 || indice >= static_cast<int>(apuestas.size())) return;
@@ -39,7 +40,7 @@ bool Jugador::hacerApuesta(int cantidad) {
 
 	// Solo con las dos primeras cartas
 	bool Jugador::puedeDoblar(int indice) const {
-		return indice >= 0 && indice < getNumMano() && indice < static_cast<int>(apuestas.size())
+		return indice >= 0 && indice < getNumManos() && indice < static_cast<int>(apuestas.size())
 		&& getMano(indice).getCartas().size() == 2 && apuestas[indice] > 0
 		&& apuestas[indice] <= fichas;
 	}
@@ -55,13 +56,14 @@ bool Jugador::hacerApuesta(int cantidad) {
 
 	// Una sola division, solo con las 2 primeras cartas y del mismo VALOR (K y 10 sirven)
 	bool Jugador::puedeDividir() const {
-		if (getNumMano() != 1 || apuestas.empty() || apuestas[0] <= 0) return false;//solo se permite dividir si hay una sola mano y hay apuesta
+		if (getNumManos() != 1 || apuestas.empty() || apuestas[0] <= 0) return false;//solo se permite dividir si hay una sola mano y hay apuesta
 		vector<Carta> cartas = getMano(0).getCartas();
 		return cartas.size() == 2 && cartas[0].getPuntos() == cartas[1].getPuntos()
 			&& apuestas[0] <= fichas;//la segunda apuesta no puede ser mayor al saldo de fichas
 	}
 
 	// Crea la segunda mano y la segunda apuesta. Luego el juego reparte una carta a cada mano.
+	//Falta desarrollar logica para dividir en la segunda 
 	bool Jugador::dividir() {
 		if (!puedeDividir()) return false;//separa la mano y la apuesta
 		fichas -= apuestas[0];//descuenta la segunda apuesta

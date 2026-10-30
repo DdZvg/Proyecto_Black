@@ -18,12 +18,12 @@ public:
 
 	string getNombre() const;
 	const Mano& getMano(int indice) const; //devuelve la mano en la posicion indice sin copiarla, no se modifica desde afuera
-	void recibirCarta(const Carta& c, int indice = 0); // Corregido: 'const Carta&' - Agrega la carta c a la mano indice
+	void recibirCarta(const Carta& c, int indice); // Corregido: 'const Carta&' - Agrega la carta c a la mano indice
 	bool estaBusted(int indice = 0) const;//es verdadero si la mano indice se paso de 21 puntos
 
-	int getNumMano() const; //cantidad de manos que tiene, 1 o 2 despues de dividir
+	int getNumManos() const; //cantidad de manos que tiene, 1 o 2 despues de dividir
 
-	bool tieneBlackjack(int indice = 0) const; //es verdadero si la mano indice es un blackjack
+	bool tieneBlackjack() const; //es verdadero si la mano indice es un blackjack
 
 	//deja al participante con una sola mano vacia al terminar la ronda
 	virtual void limpiarManos(); 
