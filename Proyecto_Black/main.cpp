@@ -22,19 +22,26 @@ void correrDemo() {
 
 	// Reparto inicial: 2 cartas para el jugador y 2 para el dealer
     jugador.recibirCarta(zapato.tomarCarta());
-    
+
+	// La primera carta del dealer se reparte oculta
     dealer.recibirCarta(zapato.tomarCarta());
+
+	// Segunda carta del jugador
     jugador.recibirCarta(zapato.tomarCarta());
+
+	// Segunda carta del dealer
     dealer.recibirCarta(zapato.tomarCarta());
     cout << "3) Reparto inicial hecho. Quedan " << zapato.cartasRestantes() << " cartas\n";
 
+
     cout << "\n" << jugador.getNombre() << ":\n";
-    jugador.getMano(0).mostrarMano(false, 7);
-    cout << "Puntos: " << jugador.getMano(0).calcularPuntos() << "\n";
+	jugador.getMano(0).mostrarMano(false, 7);// Mostrar la mano del jugador sin ocultar cartas
+	cout << "Puntos: " << jugador.getMano(0).calcularPuntos() << "\n";// Mostrar los puntos del jugador
+
 
     cout << "\nDealer (primera carta oculta):\n";
-    dealer.getMano(0).mostrarMano(true, 15);
-    cout << "Puntos reales: " << dealer.getMano(0).calcularPuntos() << "\n\n";
+	dealer.getMano(0).mostrarMano(true, 15);// Mostrar la mano del dealer con la primera carta oculta
+	cout << "Puntos reales: " << dealer.getMano(0).calcularPuntos() << "\n\n";// Mostrar los puntos reales del dealer (aunque la primera carta esté oculta)
 }
 
 int main() {
