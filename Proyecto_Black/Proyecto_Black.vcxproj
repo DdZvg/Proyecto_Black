@@ -147,11 +147,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mano.cpp" />
     <ClCompile Include="Mazo.cpp" />
-    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Participante.cpp" />
-    <ClCompile Include="testCarta.cpp" />
-    <ClCompile Include="testMenu.cpp" />
-    <ClCompile Include="Validador.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blackJackGame.h" />
@@ -161,11 +157,7 @@
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Mano.h" />
     <ClInclude Include="Mazo.h" />
-    <ClInclude Include="Menu.h" />
     <ClInclude Include="Participante.h" />
-    <ClInclude Include="testCarta.h" />
-    <ClInclude Include="testMenu.h" />
-    <ClInclude Include="Validador.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
