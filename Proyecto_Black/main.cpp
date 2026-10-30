@@ -13,13 +13,16 @@ void correrDemo() {
     Mazo zapato(6);
     cout << "1) Zapato creado: " << zapato.cartasRestantes() << " cartas \n";
 
+    
     zapato.mezclar();
     cout << "2) Zapato barajado\n";
 
     Jugador jugador("Jugador 1", 1000);
     Dealer dealer;
 
+	// Reparto inicial: 2 cartas para el jugador y 2 para el dealer
     jugador.recibirCarta(zapato.tomarCarta());
+    
     dealer.recibirCarta(zapato.tomarCarta());
     jugador.recibirCarta(zapato.tomarCarta());
     dealer.recibirCarta(zapato.tomarCarta());
