@@ -7,14 +7,14 @@
 
 class Participante{
 protected:
-	std::string nombre;
-	std::vector<Mano> manos;
+	string nombre;
+	vector<Mano> manos;
 
 public:
 	Participante(const std::string& nombre);
 	virtual ~Participante() = default;
 
-	std::string getNombre() const;
+	string getNombre() const;
 	const Mano& getMano(int indice) const; 
 	void recibirCarta(const Carta& c, int indice = 0); // Corregido: 'const Carta&'
 	bool estaBusted(int indice = 0) const;

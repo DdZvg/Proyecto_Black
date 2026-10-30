@@ -1,5 +1,5 @@
 #include "Mano.h"
-#include "consola.h"
+#include "Consola.h"
 #include <iostream>
 #include <stdexcept>
 
