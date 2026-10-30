@@ -7,36 +7,37 @@ using namespace std;
 
 class Jugador:public Participante{
 private:
-	int fichas;
-	std::vector<int> apuestas;
-	int apuestaSeguro;
+	int fichas;//saldo disponible
+	std::vector<int> apuestas;//una apuesta por mano
+	int apuestaSeguro;//apuesta de seguro de la ronda
 
 public:
-	Jugador(string nombre, int fichas);
+	Jugador(string nombre, int fichas);//crea el jugador con su nombre y su saldo de fichas
 
 	//metodos apuesta 
-	bool hacerApuesta(int cantidad);
-	void ganarApuesta(int indice=0);
-	void ganarBlackjack(int indice);//paga 3:2
-	void empatarApuesta(int indice =0);
-	void perderApuesta(int indice=0);
-	bool doblarApuesta(int indice=0);//valida 2 cartas
+	bool hacerApuesta(int cantidad);//apuesta inicial de la ronda
+	void ganarApuesta(int indice=0);//gana 1:1
+	void ganarBlackjack(int indice);//gana 3:2 (blackjack)
+	void empatarApuesta(int indice =0);//empate, se recupera la apuesta
+	void perderApuesta(int indice=0);//pierde la apuesta
+	bool doblarApuesta(int indice=0);//duplica la apuesta,valida 2 cartas
 
-	//acciones
-	bool puedeDoblar(int indice = 0)const;
-	bool puedeDividir()const;
-	bool dividir();
+	//	Acciones especiales
+	bool puedeDoblar(int indice = 0)const;// ¿se permite doblar esta mano?
+	bool puedeDividir()const;//se permite dividir?
+	bool dividir();//separa el par en dos manos 
 
-	//seguro
-	int getMaxSeguro() const;//mitad de la apuesta original
-	bool hacerSeguro(int cantidad);
+	//Seguro
+	int getMaxSeguro() const;//maximo permitodp,mitad de la apuesta original
+	bool hacerSeguro(int cantidad);//coloca la apuesta de seguro
 	void resolverSeguro(bool dealerTieneBlackjack);//se paga 2:1 o se pierde
 
-	//getters
+	//Consultas
 	int getFichas() const;
 	int getApuestaActual(int indice=0) const;
 
-	void limpiarManos() override;//limpia apuesta y seguro
+	//sobrescribe la mano de participante,ademas de vaciar las manos
+	void limpiarManos() override;//limpia apuesta y seguro para la nueva ronda
 
 };
 
