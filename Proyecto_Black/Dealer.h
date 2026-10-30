@@ -16,7 +16,7 @@ public:
 	void mostrarMano() const;
 	bool debeRevisarBlackjack() const;
 	bool ofreceSeguro() const;
-bool ofrecerSeguro() const;
+	
 
 
 	void limpiarManos() override;

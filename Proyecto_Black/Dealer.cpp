@@ -31,10 +31,6 @@ bool Dealer::ofreceSeguro() const {
 	return getCartaVisible().getValor() == "A";
 }
 
-bool Dealer::ofrecerSeguro() const {
-return ofreceSeguro();
-}
-
 bool Dealer::debeRevisarBlackjack() const {
 	if (getMano(0).getCartas().size() < 2) {
 		return false;
