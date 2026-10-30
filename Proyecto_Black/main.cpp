@@ -21,16 +21,16 @@ void correrDemo() {
     Dealer dealer;
 
 	// Reparto inicial: 2 cartas para el jugador y 2 para el dealer
-    jugador.recibirCarta(zapato.tomarCarta());
+    jugador.recibirCarta(zapato.tomarCarta(), 0);
 
 	// La primera carta del dealer se reparte oculta
-    dealer.recibirCarta(zapato.tomarCarta());
+    dealer.recibirCarta(zapato.tomarCarta(), 0);
 
 	// Segunda carta del jugador
-    jugador.recibirCarta(zapato.tomarCarta());
+    jugador.recibirCarta(zapato.tomarCarta(), 0);
 
 	// Segunda carta del dealer
-    dealer.recibirCarta(zapato.tomarCarta());
+    dealer.recibirCarta(zapato.tomarCarta(), 0);
     cout << "3) Reparto inicial hecho. Quedan " << zapato.cartasRestantes() << " cartas\n";
 
 

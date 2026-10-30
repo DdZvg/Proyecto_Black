@@ -15,7 +15,7 @@ string Participante:: getNombre() const {
 }
 
 //cuantas manos tiene el participante en este momento
-int Participante::getNumMano() const {
+int Participante::getNumManos() const {
 	return static_cast<int>(this->manos.size());//
 }
 
@@ -29,7 +29,7 @@ const Mano& Participante::getMano(int indice) const {
 
 //sirve para saber si la mano se paso de 21, si el indice no existe devuelve falso
 bool Participante::estaBusted(int indice) const {
-	if (indice < 0 || indice >= getNumMano()) {// Verificar si el índice es válido
+	if (indice < 0 || indice >= getNumManos()) {// Verificar si el índice es válido
 		return false;
 	}
 
@@ -38,7 +38,7 @@ bool Participante::estaBusted(int indice) const {
 
 //agrega una carta a la mano indicada
 void Participante::recibirCarta(const Carta& c, int indice) {
-	if (indice < 0 || indice >= getNumMano()) { // si el indice es invalido no se hace nada,para eviatar errores
+	if (indice < 0 || indice >= getNumManos()) { // si el indice es invalido no se hace nada,para eviatar errores
 		return;
 	}
 
@@ -46,13 +46,12 @@ void Participante::recibirCarta(const Carta& c, int indice) {
 }
 
 //una mano es blackjack si tiene exactamente 2 cartas y suman 21
-bool Participante::tieneBlackjack(int indice) const {
-	if (indice < 0 || indice >= getNumMano()) {
+bool Participante::tieneBlackjack() const {
+	if (getNumManos() != 1) {
 		return false;
 	}
 
-	
-	const Mano& m = this->manos.at(indice);
+	const Mano& m = manos.at(0);
 
 	return m.getCartas().size() == 2 &&
 		m.calcularPuntos() == 21;
