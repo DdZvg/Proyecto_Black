@@ -11,14 +11,16 @@ void Mano::agregarCarta(Carta c) {
 	cartas.push_back(c);
 }
 
+
 Carta Mano::quitarUltimaCarta() {
-	Carta carta = cartas.back();
-	cartas.pop_back();
+	Carta carta = cartas.back();// Obtiene la última carta de la mano
+	cartas.pop_back();// Elimina la última carta de la mano
 	return carta;
 }
 
-void Mano::marcarDeDivision() {
-}
+
+///Falta desarrollar este metodo para la fase 2, ya que le falta logica 
+void Mano::marcarDeDivision() {}
 
 
 int Mano::calcularPuntos() const {
@@ -27,6 +29,7 @@ int Mano::calcularPuntos() const {
 	int numAses = 0;// Contador de ases para ajustar su valor si es necesario
 	for (const Carta& carta : cartas) {
 		total += carta.getPuntos();// Suma los puntos de la carta actual
+
 		if (carta.getValor() == "A") {// Si la carta es un As, incrementa el contador de ases
 			numAses++;// Incrementa el contador de ases
 		}

@@ -11,8 +11,13 @@ public:
 	Mano();
 
 	void agregarCarta(Carta c);
+
+	// Quitar la última carta de la mano y devolverla
 	Carta quitarUltimaCarta();
+
+	// Marcar la mano como resultado de una división (split)
 	void marcarDeDivision();
+
 	int calcularPuntos() const;
 
 
