@@ -140,24 +140,24 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="blackJackGame.cpp" />
-    <ClCompile Include="Carta.cpp" />
-    <ClCompile Include="Dealer.cpp" />
-    <ClCompile Include="Jugador.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Mano.cpp" />
-    <ClCompile Include="Mazo.cpp" />
-    <ClCompile Include="Participante.cpp" />
+    <ClCompile Include="src\blackJackGame.cpp" />
+    <ClCompile Include="src\Carta.cpp" />
+    <ClCompile Include="src\Dealer.cpp" />
+    <ClCompile Include="src\Jugador.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Mano.cpp" />
+    <ClCompile Include="src\Mazo.cpp" />
+    <ClCompile Include="src\Participante.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="blackJackGame.h" />
-    <ClInclude Include="Carta.h" />
-    <ClInclude Include="Consola.h" />
-    <ClInclude Include="Dealer.h" />
-    <ClInclude Include="Jugador.h" />
-    <ClInclude Include="Mano.h" />
-    <ClInclude Include="Mazo.h" />
-    <ClInclude Include="Participante.h" />
+    <ClInclude Include="src\blackJackGame.h" />
+    <ClInclude Include="src\Carta.h" />
+    <ClInclude Include="src\Consola.h" />
+    <ClInclude Include="src\Dealer.h" />
+    <ClInclude Include="src\Jugador.h" />
+    <ClInclude Include="src\Mano.h" />
+    <ClInclude Include="src\Mazo.h" />
+    <ClInclude Include="src\Participante.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
