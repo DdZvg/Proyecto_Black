@@ -1,69 +1,60 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="src">
+      <UniqueIdentifier>{7b2ac837-80f5-45ae-aca4-22e48cf14c7b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Participante.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="blackJackGame.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Mazo.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Carta.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Mano.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Mano.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Participante.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Jugador.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Jugador.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Dealer.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Dealer.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\blackJackGame.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Mazo.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Carta.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="blackJackGame.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\blackJackGame.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Carta.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Carta.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Consola.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Consola.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Mano.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Dealer.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Participante.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Jugador.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Jugador.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Mano.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Dealer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Mazo.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Mazo.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Participante.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
