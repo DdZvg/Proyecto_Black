@@ -1,23 +1,20 @@
 ﻿#include "Carta.h"
 #include "Consola.h"
+#include "Colores.h"
+#include <string>
 #include <iostream>
 
 using namespace std;
-// CONSTRUCTOR
 
-// Inicializa las propiedades de la carta (palo, valor, puntos, posición inicial en la consola y estado oculta/visible)
-Carta::Carta(string palo, string valor, int puntos, bool oculto) {
+// CONSTRUCTOR
+Carta::Carta(string palo, string valor, int puntos, bool oculta) {
     this->palo = palo;
     this->valor = valor;
     this->puntos = puntos;
-
-    this->oculto = oculto;
+    this->oculta = oculta;
 }
 
-
-// MÉTODOS GETTER (Lectura de atributos)
-
-
+// MÉTODOS GETTER
 string Carta::getPalo() const {
     return this->palo;
 }
@@ -30,21 +27,17 @@ int Carta::getPuntos() const {
     return this->puntos;
 }
 
-bool Carta::isOculto() const {
-    return this->oculto;
+bool Carta::isOculta() const {
+    return this->oculta;
 }
 
-
-// MÉTODOS SETTER (Modificación de estado)
-
-
-
-// Cambia la visibilidad de la carta (true = boca abajo, false = boca arriba)
+// MÉTODOS SETTER
 void Carta::setOculta(bool estado) {
-    this->oculto = estado;
+    this->oculta = estado;
 }
+
 string Carta::getSimboloPalo() const {
-    if (palo == "Corazones" || palo =="corazones") return "♥";
+    if (palo == "Corazones" || palo == "corazones") return "♥";
     if (palo == "Diamantes" || palo == "diamantes") return "♦";
     if (palo == "Treboles" || palo == "treboles") return "♣";
     if (palo == "Picas" || palo == "picas") return "♠";
@@ -52,62 +45,55 @@ string Carta::getSimboloPalo() const {
 }
 
 // DIBUJO Y FORMATO EN CONSOLA
-// 
-// Determina el código de color ANSI según el estado o el palo de la carta
 string Carta::getColor() const {
-    if (oculto) return Consola::AZUL_OSCURO;
+    if (oculta) return Colores::AZUL_OSCURO;
     string sim = getSimboloPalo();
     if (sim == "♥" || sim == "♦" || palo == "Corazones" || palo == "Diamantes") {
-        return Consola::ROJO;
+        return Colores::ROJO;
     }
-    return Consola::BLANCO;
+    return Colores::BLANCO;
 }
 
-// Renderiza la carta gráficamente en la posición (posX, posY) de la consola mediante arte ASCII
+// Renderiza la carta en la posición (posX, posY)
 void Carta::dibujarBloque(int posX, int posY) const {
-	string color = getColor();
-	// bordes de la carta
-	string bordeSuperior = "┌─────────┐";
-	string bordeInferior = "└─────────┘";
-	// contenido de la carta
-	Consola::moverCursor(posX, posY);
-	cout << color << bordeSuperior << Consola::RESET;
-    if (oculto) {
-		//cuerpo de la carta oculta / fila de 1 a 5
+    string color = getColor();
+    string bordeSuperior = "┌─────────┐";
+    string bordeInferior = "└─────────┘";
+
+    Consola::moverCursor(posX, posY);
+    cout << color << bordeSuperior << Colores::RESET;
+
+    if (oculta) {
         Consola::moverCursor(posX, posY + 1);
-		cout << color << "│░░░░░░░░░│" << Consola::RESET;
-		Consola::moverCursor(posX, posY + 2);
-		cout << color << "│░░░░░░░░░│" << Consola::RESET;
-		Consola::moverCursor(posX, posY + 3);
-		cout << color << "│░░░░░░░░░│" << Consola::RESET;
-		Consola::moverCursor(posX, posY + 4);
-		cout << color << "│░░░░░░░░░│" << Consola::RESET;
-
-
+        cout << color << "│░░░░░░░░░│" << Colores::RESET;
+        Consola::moverCursor(posX, posY + 2);
+        cout << color << "│░░░░░░░░░│" << Colores::RESET;
+        Consola::moverCursor(posX, posY + 3);
+        cout << color << "│░░░░░░░░░│" << Colores::RESET;
+        Consola::moverCursor(posX, posY + 4);
+        cout << color << "│░░░░░░░░░│" << Colores::RESET;
     }
     else {
-		string simPalo = getSimboloPalo();
+        string simPalo = getSimboloPalo();
         string valIzq = (valor.length() == 1) ? valor + " " : valor;
         string valDer = (valor.length() == 1) ? " " + valor : valor;
-		//linea 1, valor de esquina superior izquierda
-		Consola::moverCursor(posX, posY + 1);
-		cout << color << "|" << valIzq << "       |" << Consola::RESET;
 
-		//linea 2, símbolo del palo en el centro
-		Consola::moverCursor(posX, posY + 2);
-		cout << color << "|    " << simPalo << "    |" << Consola::RESET;
+        Consola::moverCursor(posX, posY + 1);
+        cout << color << "|" << valIzq << "       |" << Colores::RESET;
 
-		//linea 3, valor de esquina inferior derecha
-		Consola::moverCursor(posX, posY + 3);
-		cout << color << "|       " << valDer << "|" << Consola::RESET;
+        Consola::moverCursor(posX, posY + 2);
+        cout << color << "|    " << simPalo << "    |" << Colores::RESET;
+
+        Consola::moverCursor(posX, posY + 3);
+        cout << color << "|       " << valDer << "|" << Colores::RESET;
     }
-	// línea 4, borde inferior
-	Consola::moverCursor(posX, posY + 4);
-	cout << color << bordeInferior << Consola::RESET;
+
+    Consola::moverCursor(posX, posY + 4);
+    cout << color << bordeInferior << Colores::RESET;
 }
-// Retorna una etiqueta textual legible
+
 string Carta::etiqueta() const {
-    if (oculto) {
+    if (oculta) {
         return "[Carta Oculta]";
     }
     return valor + " de " + palo;

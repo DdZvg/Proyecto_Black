@@ -1,6 +1,4 @@
 #pragma once
-#ifndef BLACKJACKGAME_H
-#define BLACKJACKGAME_H
 
 #include "Mazo.h"
 #include "Dealer.h"
@@ -27,4 +25,4 @@ public:
     void resetearRonda();
 };
 
-#endif
+
