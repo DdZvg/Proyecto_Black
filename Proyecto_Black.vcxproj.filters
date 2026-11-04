@@ -68,6 +68,9 @@
     <ClInclude Include="src\Participante.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\ResultadoMano.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="src\Validador.h">
       <Filter>src</Filter>
     </ClInclude>
