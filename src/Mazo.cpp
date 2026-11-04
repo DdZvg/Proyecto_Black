@@ -1,3 +1,4 @@
+
 #include "Mazo.h"
 #include <algorithm>
 #include <random>
@@ -10,14 +11,18 @@ Mazo::Mazo(int numMazos) {
     mezclar();
 }
 
-//las 52 cartas
-//(6 mazos = 312 cartas)
+// 52 cartas (6 mazos = 312 cartas)
 void Mazo::inicializarMazo(int numMazos) {
 
     cartas.clear();
-	// Si el número de mazos es menor que 1, se establece en 1
+
+    // numero de mazos es menor que 1, se establece en 1
     if (numMazos < 1) numMazos = 1;
-    cartas.reserve(52 * numMazos);
+
+    // guardar la cantidad de mazos
+    this->numMazos = numMazos;
+
+    cartas.reserve(52 * this->numMazos);
 
     string palos[4] = {
         "Corazones", "Diamantes",
@@ -28,8 +33,8 @@ void Mazo::inicializarMazo(int numMazos) {
         "A", "2", "3", "4", "5", "6",
         "7", "8", "9", "10", "J", "Q", "K"
     };
-
-    for (int m = 0; m < numMazos; m++) {
+	// agregar valores de cada carta
+    for (int m = 0; m < this->numMazos; m++) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 13; j++) {
 
@@ -58,7 +63,7 @@ void Mazo::inicializarMazo(int numMazos) {
     }
 }
 
-// Mezclar cartas
+// mezclar cartas
 void Mazo::mezclar() {
 
     random_device rd;
@@ -69,7 +74,7 @@ void Mazo::mezclar() {
         generador);
 }
 
-// Sacar carta
+// sacar carta
 Carta Mazo::tomarCarta() {
 
     Carta carta = cartas.back();
@@ -79,7 +84,7 @@ Carta Mazo::tomarCarta() {
     return carta;
 }
 
-// Cantidad de cartas restantes
+// cartas restantes
 int Mazo::cartasRestantes() const {
 
     return static_cast<int>(cartas.size());
