@@ -1,59 +1,59 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="src">
-      <UniqueIdentifier>{9e328d99-538f-4d81-a0df-ebecfc259330}</UniqueIdentifier>
+      <UniqueIdentifier>{7b2ac837-80f5-45ae-aca4-22e48cf14c7b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="blackJackGame.cpp">
+    <ClCompile Include="src\Participante.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Carta.cpp">
+    <ClCompile Include="src\Mazo.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Dealer.cpp">
+    <ClCompile Include="src\Mano.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Jugador.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\Jugador.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Mano.cpp">
+    <ClCompile Include="src\Dealer.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Mazo.cpp">
+    <ClCompile Include="src\blackJackGame.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Participante.cpp">
+    <ClCompile Include="src\Carta.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="blackJackGame.h">
+    <ClInclude Include="src\blackJackGame.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Carta.h">
+    <ClInclude Include="src\Carta.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Consola.h">
+    <ClInclude Include="src\Consola.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Dealer.h">
+    <ClInclude Include="src\Dealer.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Jugador.h">
+    <ClInclude Include="src\Jugador.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Mano.h">
+    <ClInclude Include="src\Mano.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Participante.h">
+    <ClInclude Include="src\Mazo.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Mazo.h">
+    <ClInclude Include="src\Participante.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
