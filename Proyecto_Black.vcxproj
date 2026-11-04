@@ -169,6 +169,7 @@
     <ClInclude Include="src\Mazo.h" />
     <ClInclude Include="src\Menu.h" />
     <ClInclude Include="src\Participante.h" />
+    <ClInclude Include="src\ResultadoMano.h" />
     <ClInclude Include="src\Validador.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
