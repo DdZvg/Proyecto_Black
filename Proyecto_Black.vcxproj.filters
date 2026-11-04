@@ -30,12 +30,21 @@
     <ClCompile Include="src\Carta.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Menu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Validador.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\blackJackGame.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Carta.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Colores.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Consola.h">
@@ -53,7 +62,13 @@
     <ClInclude Include="src\Mazo.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Menu.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="src\Participante.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Validador.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

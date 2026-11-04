@@ -8,7 +8,7 @@ protected: //por defecto los atributos son privados, pero se pueden heredar a ot
 	string palo;
 	string valor;
 	int puntos;
-	bool oculto;
+	bool oculta;
 	// se eliminaron posX y posY ya que no son necesarios
 	// para la lógica de la carta, pero si para el dibujo en consola
 
@@ -20,7 +20,7 @@ public:
 	string getValor() const;
 	int getPuntos() const;
 	string getSimboloPalo() const;
-	bool isOculto() const;
+	bool isOculta() const;
 	void setOculta(bool estado);
 	// Métodos visuales
 	string getColor() const;
