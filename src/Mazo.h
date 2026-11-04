@@ -1,6 +1,5 @@
 #pragma once
-#ifndef MAZO_H
-#define MAZO_H
+
 
 #include <vector>
 #include "Carta.h"
@@ -19,4 +18,3 @@ public:
     Carta tomarCarta();
     int cartasRestantes() const;
 };
-#endif 

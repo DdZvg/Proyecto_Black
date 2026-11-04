@@ -1,6 +1,5 @@
 #pragma once
-#ifndef JUGADOR_H
-#define JUGADOR_H
+
 #include "Participante.h"
 #include <vector>
 using namespace std;
@@ -41,6 +40,6 @@ public:
 
 };
 
-#endif
+
 
 

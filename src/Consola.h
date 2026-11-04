@@ -1,6 +1,5 @@
 #pragma once
-#ifndef CONSOLA_H
-#define CONSOLA_H
+
 
 #include <iostream>
 #include <string>
@@ -46,4 +45,3 @@ namespace Consola {
     }
 }
 
-#endif

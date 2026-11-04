@@ -1,7 +1,5 @@
 #pragma once
 
-#ifndef CARTA_H
-#define CARTA_H
 #include <string>
 using namespace std;
 class Carta {
@@ -30,4 +28,4 @@ public:
 	string etiqueta() const;
 };
 
-#endif // CARTA_H
+

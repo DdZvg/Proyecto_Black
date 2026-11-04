@@ -1,6 +1,5 @@
-	#pragma once
-#ifndef PARTICIPANTE_H
-#define PARTICIPANTE_H
+#pragma once
+
 #include <string>
 #include <vector>
 #include "Mano.h"
@@ -30,5 +29,5 @@ public:
 
 };
 
-#endif
+
 

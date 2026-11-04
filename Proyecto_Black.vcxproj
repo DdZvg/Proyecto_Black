@@ -154,6 +154,7 @@
     <ClCompile Include="src\Participante.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Colores.h" />
     <ClInclude Include="src\blackJackGame.h" />
     <ClInclude Include="src\Carta.h" />
     <ClInclude Include="src\Consola.h" />
