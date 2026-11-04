@@ -56,21 +56,21 @@ Al ejecutar, `main.cpp` llama a `correrDemo()`, que:
 
 ```
 Proyecto_Black/
+├── .gitignore                       # Binarios y archivos de IDE ignorados
 ├── Proyecto_Black.slnx              # Solución de Visual Studio
-└── Proyecto_Black/
+├── Proyecto_Black.vcxproj           # Proyecto de Visual Studio
+├── Proyecto_Black.vcxproj.filters
+├── docs/                            # Documentación del proyecto
+└── src/                             # Código fuente del proyecto
     ├── main.cpp                     # Punto de entrada y demostración
     ├── Consola.h                    # Utilidades de consola (colores, cursor, limpiar pantalla)
-    ├── Menu.h / Menu.cpp            # Bienvenida, menú, reglas y solicitudes
-    ├── Validador.h / Validador.cpp  # Validación de entradas de consola
     ├── Carta.h / Carta.cpp          # Modelo y representación visual de una carta
     ├── Mazo.h / Mazo.cpp            # Creación, barajado y extracción de cartas (zapato)
     ├── Mano.h / Mano.cpp            # Cartas de una mano y cálculo de puntos
     ├── Participante.h / .cpp        # Clase base de participantes
     ├── Jugador.h / Jugador.cpp      # Fichas y apuestas del jugador
     ├── Dealer.h / Dealer.cpp        # Comportamiento básico del crupier
-    ├── blackJackGame.h / .cpp       # Esqueleto del flujo de juego
-    ├── testMenu.h / testMenu.cpp    # Pruebas interactivas del menú
-    └── testCarta.h / testCarta.cpp  # Prueba visual de cartas
+    └── blackJackGame.h / .cpp       # Esqueleto del flujo de juego
 ```
 
 ## Reglas representadas en la interfaz
