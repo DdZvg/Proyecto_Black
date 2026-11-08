@@ -19,6 +19,11 @@ int Participante::getNumManos() const {
 	return static_cast<int>(this->manos.size());//
 }
 
+// Devuelve una referencia no constante a la mano pedida, para poder modificarla.
+Mano& Participante::getMano(int indice) {
+	return this->manos.at(indice);
+}
+
 // CORRECCIÓN AQUÍ: Se agrega 'const' antes de Mano&
 // Devuelve una referencia constante a la mano pedida.
 // at() revisa el indice: si esta fuera de rango lanza una excepcion en lugar de leer memoria invalida.
@@ -33,7 +38,7 @@ bool Participante::estaBusted(int indice) const {
 		return false;
 	}
 
-	return this->manos.at(indice).calcularPuntos() > 21;// Verificar si la mano está "busted" (puntos > 21)
+	return this->manos.at(indice).estaBusted();// Verificar si la mano está "busted" (puntos > 21)
 }
 
 //agrega una carta a la mano indicada
@@ -47,14 +52,7 @@ void Participante::recibirCarta(const Carta& c, int indice) {
 
 //una mano es blackjack si tiene exactamente 2 cartas y suman 21
 bool Participante::tieneBlackjack() const {
-	if (getNumManos() != 1) {
-		return false;
-	}
-
-	const Mano& m = manos.at(0);
-
-	return m.getCartas().size() == 2 &&
-		m.calcularPuntos() == 21;
+	return this->manos.at(0).tieneBlackjack();
 }
 
 //prepara el participante para la egunda ronda, borrando todas las manos

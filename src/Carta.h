@@ -14,7 +14,7 @@ protected: //por defecto los atributos son privados, pero se pueden heredar a ot
 
 public:
 	//constructor de la clase Carta
-	Carta(string palo, string valor, int puntos, bool oculto);
+	Carta(string palo, string valor, int puntos, bool oculta);
 	// Getters y Setters
 	string getPalo() const;
 	string getValor() const;

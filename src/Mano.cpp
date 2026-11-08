@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Mano::Mano() {}
+Mano::Mano() : apuesta(0), apuestaSeguro(0), esDeDivision(false), resultado(ResultadoMano::Pendiente) {}
 
 void Mano::agregarCarta(Carta c) {
 	cartas.push_back(c);
@@ -19,8 +19,9 @@ Carta Mano::quitarUltimaCarta() {
 }
 
 
-///Falta desarrollar este metodo para la fase 2, ya que le falta logica 
-void Mano::marcarDeDivision() {}
+void Mano::marcarDeDivision() {
+	esDeDivision = true;
+}
 
 
 int Mano::calcularPuntos() const {
@@ -40,6 +41,21 @@ int Mano::calcularPuntos() const {
 		numAses--;
 	}
 	return total;
+}
+
+// Un blackjack natural solo es posible con las dos primeras cartas de una mano sin dividir
+bool Mano::tieneBlackjack() const {
+	return !esDeDivision && cartas.size() == 2 && calcularPuntos() == 21;
+}
+
+bool Mano::estaBusted() const {
+	return calcularPuntos() > 21;
+}
+
+// Solo se puede dividir un par con la apuesta colocada y sin haber dividido antes
+bool Mano::puedeDividir() const {
+	return !esDeDivision && apuesta > 0 && cartas.size() == 2
+		&& cartas[0].getPuntos() == cartas[1].getPuntos();
 }
 
 	void Mano::mostrarMano(bool ocultarPrimera, int y) const {
@@ -68,10 +84,79 @@ int Mano::calcularPuntos() const {
 
 	void Mano::limpiarMano() {
 		cartas.clear(); // Elimina todas las cartas de la mano
+		apuesta = 0;
+		apuestaSeguro = 0;
+		esDeDivision = false;
+		resultado = ResultadoMano::Pendiente;
 	}
 
 	vector<Carta> Mano::getCartas() const {
 		return cartas; // Retorna el vector de cartas
 	}
 
+	const Carta& Mano::getCarta(int indice) const {
+		return cartas.at(indice);
+	}
 
+	// Apuestas de la mano
+
+	bool Mano::apostar(int cantidad) {
+		if (cantidad <= 0 || apuesta != 0) return false;
+		apuesta = cantidad;
+		return true;
+	}
+
+	int Mano::getApuesta() const {
+		return apuesta;
+	}
+
+	bool Mano::doblarApuesta() {
+		if (cartas.size() != 2 || apuesta <= 0) return false;
+		apuesta *= 2;
+		return true;
+	}
+
+	void Mano::ganarApuesta() {
+		resultado = ResultadoMano::Gana;
+	}
+
+	void Mano::ganarBlackjack() {
+		resultado = ResultadoMano::BlackJack;
+	}
+
+	void Mano::empatarApuesta() {
+		resultado = ResultadoMano::Empata;
+	}
+
+	void Mano::perderApuesta() {
+		resultado = ResultadoMano::Pierde;
+	}
+
+	// Seguro de la mano
+
+	int Mano::getMaxSeguro() const {
+		return apuesta / 2;
+	}
+
+	bool Mano::hacerSeguro(int cantidad) {
+		if (apuestaSeguro != 0 || cantidad <= 0 || cantidad > getMaxSeguro()) return false;
+		apuestaSeguro = cantidad;
+		return true;
+	}
+
+	void Mano::resolverSeguro(bool dealerTieneBlackjack) {
+		if (!dealerTieneBlackjack) {
+			apuestaSeguro = 0;// el seguro se pierde
+		}
+		else {
+			apuestaSeguro *= 3;// se cobra la apuesta del seguro + el pago 2:1
+		}
+	}
+
+	int Mano::getApuestaSeguro() const {
+		return apuestaSeguro;
+	}
+
+	ResultadoMano Mano::getResultado() const {
+		return resultado;
+	}

@@ -16,8 +16,9 @@ public:
 	virtual ~Participante() = default;//
 
 	string getNombre() const;
+	Mano& getMano(int indice); //devuelve la mano en la posicion indice sin copiarla, permite modificarla
 	const Mano& getMano(int indice) const; //devuelve la mano en la posicion indice sin copiarla, no se modifica desde afuera
-	void recibirCarta(const Carta& c, int indice); // Corregido: 'const Carta&' - Agrega la carta c a la mano indice
+	void recibirCarta(const Carta& c, int indice = 0); // Corregido: 'const Carta&' - Agrega la carta c a la mano indice
 	bool estaBusted(int indice = 0) const;//es verdadero si la mano indice se paso de 21 puntos
 
 	int getNumManos() const; //cantidad de manos que tiene, 1 o 2 despues de dividir

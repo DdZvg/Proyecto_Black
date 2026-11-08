@@ -17,7 +17,7 @@ void correrDemo() {
     zapato.mezclar();
     cout << "2) Zapato barajado\n";
 
-    Jugador jugador("Jugador 1", 1000);
+    Jugador jugador("Jugador 1");
     Dealer dealer;
 
 	// Reparto inicial: 2 cartas para el jugador y 2 para el dealer

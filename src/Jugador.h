@@ -1,45 +1,33 @@
 #pragma once
 
 #include "Participante.h"
+#include "ResultadoMano.h"
 #include <vector>
 using namespace std;
 
-class Jugador:public Participante{
+class Jugador : public Participante {
 private:
-	int fichas;//saldo disponible
-	std::vector<int> apuestas;//una apuesta por mano
-	int apuestaSeguro;//apuesta de seguro de la ronda
+	int fichas;//saldo disponible (se conserva para poder validar las apuestas)
 
 public:
-	Jugador(string nombre, int fichas);//crea el jugador con su nombre y su saldo de fichas
+	//crea el jugador con su nombre y su saldo de fichas
+	explicit Jugador(const string& nombre, int fichas = 1000);
 
-	//metodos apuesta 
-	bool hacerApuesta(int cantidad);//apuesta inicial de la ronda
-	void ganarApuesta(int indice=0);//gana 1:1
-	void ganarBlackjack(int indice);//gana 3:2 (blackjack)
-	void empatarApuesta(int indice =0);//empate, se recupera la apuesta
-	void perderApuesta(int indice=0);//pierde la apuesta
-	bool doblarApuesta(int indice=0);//duplica la apuesta,valida 2 cartas
+	//apuesta inicial de la ronda; descuenta las fichas y se la asigna a la mano
+	bool hacerApuesta(int cantidad);
 
-	//	Acciones especiales
-	bool puedeDoblar(int indice = 0)const;// ¿se permite doblar esta mano?
-	bool puedeDividir()const;//se permite dividir?
-	bool dividir();//separa el par en dos manos 
+	//se permite dividir si hay una sola mano, es un par y hay fichas suficientes
+	bool puedeDividir(int indice = 0) const;
 
-	//Seguro
-	int getMaxSeguro() const;//maximo permitodp,mitad de la apuesta original
-	bool hacerSeguro(int cantidad);//coloca la apuesta de seguro
-	void resolverSeguro(bool dealerTieneBlackjack);//se paga 2:1 o se pierde
+	//separa el par en dos manos
+	bool dividir();
 
-	//Consultas
+	//devuelve el resultado de la mano indicada
+	ResultadoMano recibirResultado(int indice = 0) const;
+
+	//consultas
 	int getFichas() const;
-	int getApuestaActual(int indice=0) const;
 
-	//sobrescribe la mano de participante,ademas de vaciar las manos
-	void limpiarManos() override;//limpia apuesta y seguro para la nueva ronda
-
+	//limpia las manos para la nueva ronda
+	void limpiarManos() override;
 };
-
-
-
-
