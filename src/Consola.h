@@ -1,11 +1,8 @@
 #pragma once
-#ifndef CONSOLA_H
-#define CONSOLA_H
 
 #include <iostream>
 #include <string>
 
-// Soporte para consolas Windows (UTF-8)
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
@@ -14,25 +11,16 @@
 using namespace std;
 
 namespace Consola {
-    // Códigos ANSI para colores
-    const string RESET = "\033[0m";
-    const string ROJO = "\033[91m";
-    const string BLANCO = "\033[97m";
-    const string AZUL_OSCURO = "\033[34m";
-    const string VERDE = "\033[92m";
 
-    // Configura la consola al arrancar 
+    const string CODIGO_RESTABLECER_FORMATO = "\033[0m";
+
     inline void inicializar() {
 #ifdef _WIN32
         SetConsoleOutputCP(CP_UTF8);
 #endif
     }
 
-    // Limpia la pantalla y posiciona el cursor en el origen (1,1)
     inline void limpiarPantalla() {
-#ifdef _WIN32
-        SetConsoleOutputCP(CP_UTF8);
-#endif
 #ifdef _WIN32
         system("cls");
 #else
@@ -40,10 +28,8 @@ namespace Consola {
 #endif
     }
 
-    // Mueve el cursor a las coordenadas (x, y) de la consola
     inline void moverCursor(int x, int y) {
         cout << "\033[" << y << ";" << x << "H";
     }
-}
 
-#endif
+}
