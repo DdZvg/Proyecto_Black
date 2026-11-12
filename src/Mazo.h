@@ -17,5 +17,5 @@ public:
     void mezclar();
     Carta tomarCarta();
     int cartasRestantes() const;
-};
 
+};

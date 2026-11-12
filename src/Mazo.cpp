@@ -76,6 +76,12 @@ void Mazo::mezclar() {
 
 // sacar carta
 Carta Mazo::tomarCarta() {
+    // Seguridad: si el zapato se vacio, se reconstruye y se vuelve a barajar
+    // para nunca leer un vector vacio (comportamiento indefinido).
+    if (cartas.empty()) {
+        inicializarMazo(numMazos);
+        mezclar();
+    }
 
     Carta carta = cartas.back();
 
