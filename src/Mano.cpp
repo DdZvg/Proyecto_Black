@@ -58,105 +58,101 @@ bool Mano::puedeDividir() const {
 		&& cartas[0].getPuntos() == cartas[1].getPuntos();
 }
 
-	void Mano::mostrarMano(bool ocultarPrimera, int y) const {
-		const int ANCHO_CARTA = 12;/// Ancho de cada carta en caracteres
-			const int X_INICIAL = 5;/// Posición X inicial para dibujar la primera carta
+void Mano::mostrarMano(bool ocultarPrimera, int y) const {
+	const int ANCHO_CARTA = 12;/// Ancho de cada carta en caracteres
+	const int X_INICIAL = 5;/// Posición X inicial para dibujar la primera carta
 
-		for (size_t i = 0; i < cartas.size(); ++i) {
-			Carta carta = cartas[i];
+	for (size_t i = 0; i < cartas.size(); ++i) {
+		Carta carta = cartas[i];
 
-			// Si se solicita ocultar la primera carta y estamos en la primera iteración, se marca como oculta
-			if (ocultarPrimera && i == 0) {
-				carta.setOculta(true);
-			}
-			int posX = X_INICIAL + static_cast<int>(i) * ANCHO_CARTA; // Calcula la posición X para la carta actual
-			int posY = y;// Posición Y para dibujar la carta (constante para todas las cartas)
-
-			//se utiliza metodo de carta.h 
-			carta.dibujarBloque(posX, posY);// Dibuja la carta en la consola
-
-		}// Fin del bucle que recorre todas las cartas de la mano
-
-		//se utiliza la funcion de consola.h
-		Consola::moverCursor(1, y + 5); // Mueve el cursor a la siguiente línea después de dibujar la carta)
-	}
-
-
-	void Mano::limpiarMano() {
-		cartas.clear(); // Elimina todas las cartas de la mano
-		apuesta = 0;
-		apuestaSeguro = 0;
-		esDeDivision = false;
-		resultado = ResultadoMano::Pendiente;
-	}
-
-	vector<Carta> Mano::getCartas() const {
-		return cartas; // Retorna el vector de cartas
-	}
-
-	const Carta& Mano::getCarta(int indice) const {
-		return cartas.at(indice);
-	}
-
-	// Apuestas de la mano
-
-	bool Mano::apostar(int cantidad) {
-		if (cantidad <= 0 || apuesta != 0) return false;
-		apuesta = cantidad;
-		return true;
-	}
-
-	int Mano::getApuesta() const {
-		return apuesta;
-	}
-
-	bool Mano::doblarApuesta() {
-		if (cartas.size() != 2 || apuesta <= 0) return false;
-		apuesta *= 2;
-		return true;
-	}
-
-	void Mano::ganarApuesta() {
-		resultado = ResultadoMano::Gana;
-	}
-
-	void Mano::ganarBlackjack() {
-		resultado = ResultadoMano::BlackJack;
-	}
-
-	void Mano::empatarApuesta() {
-		resultado = ResultadoMano::Empata;
-	}
-
-	void Mano::perderApuesta() {
-		resultado = ResultadoMano::Pierde;
-	}
-
-	// Seguro de la mano
-
-	int Mano::getMaxSeguro() const {
-		return apuesta / 2;
-	}
-
-	bool Mano::hacerSeguro(int cantidad) {
-		if (apuestaSeguro != 0 || cantidad <= 0 || cantidad > getMaxSeguro()) return false;
-		apuestaSeguro = cantidad;
-		return true;
-	}
-
-	void Mano::resolverSeguro(bool dealerTieneBlackjack) {
-		if (!dealerTieneBlackjack) {
-			apuestaSeguro = 0;// el seguro se pierde
+		// Si se solicita ocultar la primera carta y estamos en la primera iteración, se marca como oculta
+		if (ocultarPrimera && i == 0) {
+			carta.setOculta(true);
 		}
-		else {
-			apuestaSeguro *= 3;// se cobra la apuesta del seguro + el pago 2:1
-		}
-	}
+		int posX = X_INICIAL + static_cast<int>(i) * ANCHO_CARTA; // Calcula la posición X para la carta actual
+		int posY = y;// Posición Y para dibujar la carta (constante para todas las cartas)
 
-	int Mano::getApuestaSeguro() const {
-		return apuestaSeguro;
-	}
+		//se utiliza metodo de carta.h 
+		carta.dibujarBloque(posX, posY);// Dibuja la carta en la consola
 
-	ResultadoMano Mano::getResultado() const {
-		return resultado;
+	}// Fin del bucle que recorre todas las cartas de la mano
+
+	//se utiliza la funcion de consola.h
+	Consola::moverCursor(1, y + 5); // Mueve el cursor a la siguiente línea después de dibujar la carta)
+}
+
+
+void Mano::limpiarMano() {
+	cartas.clear(); // Elimina todas las cartas de la mano
+	apuesta = 0;
+	apuestaSeguro = 0;
+	esDeDivision = false;
+	resultado = ResultadoMano::Pendiente;
+}
+
+vector<Carta> Mano::getCartas() const {
+	return cartas; // Retorna el vector de cartas
+}
+
+// Apuestas de la mano
+
+bool Mano::apostar(int cantidad) {
+	if (cantidad <= 0 || apuesta != 0) return false;
+	apuesta = cantidad;
+	return true;
+}
+
+int Mano::getApuesta() const {
+	return apuesta;
+}
+
+bool Mano::doblarApuesta() {
+	if (cartas.size() != 2 || apuesta <= 0) return false;
+	apuesta *= 2;
+	return true;
+}
+
+void Mano::ganarApuesta() {
+	resultado = ResultadoMano::Gana;
+}
+
+void Mano::ganarBlackjack() {
+	resultado = ResultadoMano::BlackJack;
+}
+
+void Mano::empatarApuesta() {
+	resultado = ResultadoMano::Empata;
+}
+
+void Mano::perderApuesta() {
+	resultado = ResultadoMano::Pierde;
+}
+
+// Seguro de la mano
+
+int Mano::getMaxSeguro() const {
+	return apuesta / 2;
+}
+
+bool Mano::hacerSeguro(int cantidad) {
+	if (apuestaSeguro != 0 || cantidad <= 0 || cantidad > getMaxSeguro()) return false;
+	apuestaSeguro = cantidad;
+	return true;
+}
+
+void Mano::resolverSeguro(bool dealerTieneBlackjack) {
+	if (!dealerTieneBlackjack) {
+		apuestaSeguro = 0;// el seguro se pierde
 	}
+	else {
+		apuestaSeguro *= 3;// se cobra la apuesta del seguro + el pago 2:1
+	}
+}
+
+int Mano::getApuestaSeguro() const {
+	return apuestaSeguro;
+}
+
+ResultadoMano Mano::getResultado() const {
+	return resultado;
+}

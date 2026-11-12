@@ -12,6 +12,11 @@ private:
 	int apuestaSeguro;
 	bool esDeDivision;
 	ResultadoMano resultado;
+
+	// El dealer necesita leer una carta concreta sin copiarla (getCartaVisible).
+	// Se usa amistad para no agregar metodos que no estan en el UML.
+	friend class Dealer;
+
 public:
 	Mano();
 
@@ -30,15 +35,12 @@ public:
 	bool puedeDividir() const;
 
 	// Mostrar la mano en consola, con opción de ocultar la primera carta (por ejemplo, para la mano del dealer)
-	void mostrarMano(bool ocultarPrimera=false, int y=3) const;
+	void mostrarMano(bool ocultarPrimera = false, int y = 3) const;
 
 	void limpiarMano();
-	
+
 	// Getter de el vector
 	vector<Carta> getCartas() const;
-
-	// Acceso a una carta concreta sin copiar el vector
-	const Carta& getCarta(int indice) const;
 
 	// Apuestas y resultado de la mano
 	bool apostar(int cantidad);
