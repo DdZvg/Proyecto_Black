@@ -6,6 +6,10 @@
 using namespace std;
 // CONSTRUCTOR
 Carta::Carta(string palo, string valor, int puntos, bool oculta) {
+    this->palo = palo;
+    this->valor = valor;
+    this->puntos = puntos;
+    this->oculta = oculta;
 }
 
 // MÉTODOS GETTER
