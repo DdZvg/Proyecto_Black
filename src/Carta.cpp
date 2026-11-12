@@ -3,15 +3,9 @@
 #include "Colores.h"
 #include <string>
 #include <iostream>
-
 using namespace std;
-
 // CONSTRUCTOR
 Carta::Carta(string palo, string valor, int puntos, bool oculta) {
-    this->palo = palo;
-    this->valor = valor;
-    this->puntos = puntos;
-    this->oculta = oculta;
 }
 
 // MÉTODOS GETTER
@@ -61,17 +55,17 @@ void Carta::dibujarBloque(int posX, int posY) const {
     string bordeInferior = "└─────────┘";
 
     Consola::moverCursor(posX, posY);
-    cout << color << bordeSuperior << Colores::RESET;
+    cout << color << bordeSuperior << Consola::CODIGO_RESTABLECER_FORMATO;
 
     if (oculta) {
         Consola::moverCursor(posX, posY + 1);
-        cout << color << "│░░░░░░░░░│" << Colores::RESET;
+        cout << color << "│░░░░░░░░░│" << Consola::CODIGO_RESTABLECER_FORMATO;
         Consola::moverCursor(posX, posY + 2);
-        cout << color << "│░░░░░░░░░│" << Colores::RESET;
+        cout << color << "│░░░░░░░░░│" << Consola::CODIGO_RESTABLECER_FORMATO;
         Consola::moverCursor(posX, posY + 3);
-        cout << color << "│░░░░░░░░░│" << Colores::RESET;
+        cout << color << "│░░░░░░░░░│" << Consola::CODIGO_RESTABLECER_FORMATO;
         Consola::moverCursor(posX, posY + 4);
-        cout << color << "│░░░░░░░░░│" << Colores::RESET;
+        cout << color << "│░░░░░░░░░│" << Consola::CODIGO_RESTABLECER_FORMATO;
     }
     else {
         string simPalo = getSimboloPalo();
@@ -79,17 +73,17 @@ void Carta::dibujarBloque(int posX, int posY) const {
         string valDer = (valor.length() == 1) ? " " + valor : valor;
 
         Consola::moverCursor(posX, posY + 1);
-        cout << color << "|" << valIzq << "       |" << Colores::RESET;
+        cout << color << "|" << valIzq << "       |" << Consola::CODIGO_RESTABLECER_FORMATO;
 
         Consola::moverCursor(posX, posY + 2);
-        cout << color << "|    " << simPalo << "    |" << Colores::RESET;
+        cout << color << "|    " << simPalo << "    |" << Consola::CODIGO_RESTABLECER_FORMATO;
 
         Consola::moverCursor(posX, posY + 3);
-        cout << color << "|       " << valDer << "|" << Colores::RESET;
+        cout << color << "|       " << valDer << "|" << Consola::CODIGO_RESTABLECER_FORMATO;
     }
 
     Consola::moverCursor(posX, posY + 4);
-    cout << color << bordeInferior << Colores::RESET;
+    cout << color << bordeInferior << Consola::CODIGO_RESTABLECER_FORMATO;
 }
 
 string Carta::etiqueta() const {
