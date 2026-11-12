@@ -1,65 +1,31 @@
-#include "Participante.h"
+#pragma once
 
-using namespace std;
+#include <string>
+#include <vector>
+#include "Mano.h"
 
-Participante::Participante(const string& nombre) //guarda el nombre y crea la primera mano
-{
-	this->nombre = nombre;
-	this->manos.push_back(Mano());
-}
+class Participante {
+protected:
+	string nombre;
+	vector<Mano> manos;//manos del participante, 1 al inicio, 2 si se divide
 
-//getters
+public:
 
-string Participante::getNombre() const {
-	return this->nombre;
-}
+	Participante(const std::string& nombre);//crea el participante con su mano vacia
 
-//cuantas manos tiene el participante en este momento
-int Participante::getNumManos() const {
-	return static_cast<int>(this->manos.size());//
-}
+	virtual ~Participante() = default;//
 
-// Devuelve una referencia no constante a la mano pedida, para poder modificarla.
-Mano& Participante::getMano(int indice) {
-	return this->manos.at(indice);
-}
+	string getNombre() const;
+	Mano& getMano(int indice); //devuelve la mano en la posicion indice sin copiarla, permite modificarla
+	const Mano& getMano(int indice) const; //devuelve la mano en la posicion indice sin copiarla, no se modifica desde afuera
+	void recibirCarta(const Carta& c, int indice = 0); // Corregido: 'const Carta&' - Agrega la carta c a la mano indice
+	bool estaBusted(int indice = 0) const;//es verdadero si la mano indice se paso de 21 puntos
 
-// CORRECCIÓN AQUÍ: Se agrega 'const' antes de Mano&
-// Devuelve una referencia constante a la mano pedida.
-// at() revisa el indice: si esta fuera de rango lanza una excepcion en lugar de leer memoria invalida.
-const Mano& Participante::getMano(int indice) const {
-	return this->manos.at(indice);
+	int getNumManos() const; //cantidad de manos que tiene, 1 o 2 despues de dividir
 
-}
+	bool tieneBlackjack() const; //es verdadero si la mano indice es un blackjack
 
-//sirve para saber si la mano se paso de 21, si el indice no existe devuelve falso
-bool Participante::estaBusted(int indice) const {
-	if (indice < 0 || indice >= getNumManos()) {// Verificar si el índice es válido
-		return false;
-	}
+	//deja al participante con una sola mano vacia al terminar la ronda
+	virtual void limpiarManos();
 
-	return this->manos.at(indice).estaBusted();// Verificar si la mano está "busted" (puntos > 21)
-}
-
-//agrega una carta a la mano indicada
-void Participante::recibirCarta(const Carta& c, int indice) {
-	if (indice < 0 || indice >= getNumManos()) { // si el indice es invalido no se hace nada,para eviatar errores
-		return;
-	}
-
-	this->manos.at(indice).agregarCarta(c);
-}
-
-//una mano es blackjack si tiene exactamente 2 cartas y suman 21
-bool Participante::tieneBlackjack() const {
-	return this->manos.at(0).tieneBlackjack();
-}
-
-//prepara el participante para la egunda ronda, borrando todas las manos
-void Participante::limpiarManos() {
-	this->manos.clear();
-	this->manos.push_back(Mano());
-}
-
-
-
+};
