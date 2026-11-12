@@ -1,4 +1,3 @@
-<img width="1426" height="746" alt="vs-01-instalador" src="https://github.com/user-attachments/assets/4989327e-a207-419a-adff-b6765ba5a821" />
 # Guía de compilación
 
 Este documento tiene dos guías para compilar y ejecutar el Proyecto_Black
