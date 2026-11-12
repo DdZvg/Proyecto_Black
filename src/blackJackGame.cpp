@@ -116,7 +116,7 @@ BlackJackGame::~BlackJackGame() {
 
 void BlackJackGame::estado(const string& mensaje) {
     Consola::limpiarRegion(3, FILA_MENSAJE, ANCHO_MESA - 2, 2);
-    Consola::escribirEn(3, FILA_MENSAJE, mensaje);
+    Consola::escribirLinea(3, FILA_MENSAJE, mensaje, ANCHO_MESA - 2);
 }
 
 void BlackJackGame::dibujarZonaDealer(bool revelada) {
@@ -133,7 +133,7 @@ void BlackJackGame::dibujarZonaDealer(bool revelada) {
             etiqueta += " - muestra " + dealer->getCartaVisible().getValor();
         }
     }
-    Consola::escribirEn(3, FILA_DEALER_ETIQUETA, etiqueta);
+    Consola::escribirLinea(3, FILA_DEALER_ETIQUETA, etiqueta, ANCHO_MESA - 2);
     dealer->mostrarMano();
 }
 
@@ -152,17 +152,17 @@ void BlackJackGame::dibujarZonaActiva(int indiceActivo) {
 
     const Mano& mano1 = jugador.getMano(0);
     if (jugador.getNumManos() == 1) {
-        Consola::escribirEn(3, FILA_ACTIVO_ETIQUETA, jugador.getNombre()
-            + " (apuesta " + to_string(mano1.getApuesta()) + ")" + textoPuntos(mano1));
+        Consola::escribirLinea(3, FILA_ACTIVO_ETIQUETA, jugador.getNombre()
+            + " (apuesta " + to_string(mano1.getApuesta()) + ")" + textoPuntos(mano1), ANCHO_MESA - 2);
         mano1.mostrarMano(false, FILA_MANO1);
     }
     else {
-        Consola::escribirEn(3, FILA_ACTIVO_ETIQUETA, jugador.getNombre() + " - mano 1 (apuesta "
-            + to_string(mano1.getApuesta()) + ")" + textoPuntos(mano1));
+        Consola::escribirLinea(3, FILA_ACTIVO_ETIQUETA, jugador.getNombre() + " - mano 1 (apuesta "
+            + to_string(mano1.getApuesta()) + ")" + textoPuntos(mano1), ANCHO_MESA - 2);
         mano1.mostrarMano(false, FILA_MANO1);
         const Mano& mano2 = jugador.getMano(1);
-        Consola::escribirEn(3, FILA_MANO2_ETIQUETA, "mano 2 (apuesta "
-            + to_string(mano2.getApuesta()) + ")" + textoPuntos(mano2));
+        Consola::escribirLinea(3, FILA_MANO2_ETIQUETA, "mano 2 (apuesta "
+            + to_string(mano2.getApuesta()) + ")" + textoPuntos(mano2), ANCHO_MESA - 2);
         mano2.mostrarMano(false, FILA_MANO2);
     }
 }
@@ -175,7 +175,7 @@ void BlackJackGame::dibujarZonaOtros(int indiceActivo) {
         const Jugador& jugador = *jugadores[i];
         if (jugador.getMano(0).getApuesta() == 0) continue;
         if (fila >= FILA_MENSAJE) break;
-        Consola::escribirEn(3, fila, lineaCompactaJugador(jugador));
+        Consola::escribirLinea(3, fila, lineaCompactaJugador(jugador), ANCHO_MESA - 2);
         ++fila;
     }
 }
@@ -210,6 +210,7 @@ void BlackJackGame::ejecutar() {
         }
         determinarGanador();
 
+        Consola::limpiarLinea(FILA_ESTADO, ANCHO_MESA);
         Consola::moverCursor(3, FILA_ESTADO);
         char respuesta = Validador::leerCaracter("¿Jugar otra ronda? (s/n): ", "sSnN");
         continuar = respuesta == 's' || respuesta == 'S';
@@ -288,6 +289,7 @@ void BlackJackGame::ofrecerSeguro() {
         if (mano.getApuesta() == 0) continue;
         int maximo = min(mano.getMaxSeguro(), fichas[i]);
         if (maximo <= 0) continue;
+        Consola::limpiarLinea(FILA_ESTADO, ANCHO_MESA);
         Consola::moverCursor(3, FILA_ESTADO);
         int cantidad = Validador::leerEntero(jugador->getNombre() + " - seguro (0-" + to_string(maximo) + "): ", 0, maximo);
         if (cantidad > 0) {
@@ -346,6 +348,7 @@ void BlackJackGame::turnoJugador() {
                 if (puedeDoblar) mensaje += ", doblar (d)";
                 if (puedeDividir) mensaje += ", dividir (v)";
                 mensaje += "? ";
+                Consola::limpiarLinea(FILA_ESTADO, ANCHO_MESA);
                 Consola::moverCursor(3, FILA_ESTADO);
                 char accion = Validador::leerCaracter(mensaje, opciones);
 
@@ -437,7 +440,7 @@ void BlackJackGame::determinarGanador() {
     if (dealerBlackjack) resumen += " - el dealer tiene BLACKJACK";
     else if (puntosDealer > 21) resumen += " - el dealer se paso de 21";
     else resumen += " - dealer: " + to_string(puntosDealer) + " puntos";
-    Consola::escribirEn(3, FILA_ACTIVO_ETIQUETA, resumen);
+    Consola::escribirLinea(3, FILA_ACTIVO_ETIQUETA, resumen, ANCHO_MESA - 2);
 
     int fila = FILA_ACTIVO_ETIQUETA + 2;
     for (int j = 0; j < static_cast<int>(jugadores.size()); ++j) {
@@ -483,7 +486,7 @@ void BlackJackGame::determinarGanador() {
                 + ": " + textoResultado(jugador->recibirResultado(i))
                 + " (" + to_string(mano.calcularPuntos()) + " puntos)" + mensajeSeguro
                 + " - fichas: " + to_string(fichas[j]);
-            if (fila < FILA_MENSAJE) Consola::escribirEn(3, fila, linea);
+            if (fila < FILA_MENSAJE) Consola::escribirLinea(3, fila, linea, ANCHO_MESA - 2);
             ++fila;
         }
     }

@@ -59,26 +59,39 @@ bool Mano::puedeDividir() const {
 }
 
 void Mano::mostrarMano(bool ocultarPrimera, int y) const {
-	const int ANCHO_CARTA = 12;/// Ancho de cada carta en caracteres
-	const int X_INICIAL = 5;/// Posición X inicial para dibujar la primera carta
+	const int ANCHO_MESA = 78;
+	const int ANCHO_CARTA = 12;
+	const int X_INICIAL = 5;
 
-	for (size_t i = 0; i < cartas.size(); ++i) {
-		Carta carta = cartas[i];
+	const int cartasVisibles =
+		(ANCHO_MESA - X_INICIAL) / ANCHO_CARTA;
 
-		// Si se solicita ocultar la primera carta y estamos en la primera iteración, se marca como oculta
+	const int limite = static_cast<int>(cartas.size()) < cartasVisibles
+		? static_cast<int>(cartas.size())
+		: cartasVisibles;
+
+	for (int i = 0; i < limite; ++i) {
+		Carta carta = cartas[static_cast<size_t>(i)];
+
 		if (ocultarPrimera && i == 0) {
 			carta.setOculta(true);
 		}
-		int posX = X_INICIAL + static_cast<int>(i) * ANCHO_CARTA; // Calcula la posición X para la carta actual
-		int posY = y;// Posición Y para dibujar la carta (constante para todas las cartas)
 
-		//se utiliza metodo de carta.h 
-		carta.dibujarBloque(posX, posY);// Dibuja la carta en la consola
+		const int posX = X_INICIAL + i * ANCHO_CARTA;
+		carta.dibujarBloque(posX, y);
+	}
 
-	}// Fin del bucle que recorre todas las cartas de la mano
+	const int restantes = static_cast<int>(cartas.size()) - limite;
 
-	//se utiliza la funcion de consola.h
-	Consola::moverCursor(1, y + 5); // Mueve el cursor a la siguiente línea después de dibujar la carta)
+	if (restantes > 0) {
+		Consola::escribirEn(
+			X_INICIAL,
+			y + 5,
+			"+" + to_string(restantes) + " cartas"
+		);
+	}
+
+	Consola::moverCursor(1, y + 5);
 }
 
 

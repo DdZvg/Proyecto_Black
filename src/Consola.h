@@ -50,6 +50,30 @@ namespace Consola {
         cout << texto;
     }
 
+    inline void escribirLinea(int x, int y, const string& texto, int ancho) {
+        if (ancho <= 0) return;
+
+        string salida = texto;
+
+        // Recorte conservador para mantener la salida dentro de la zona.
+        // Se mantiene simple para no introducir una dependencia Unicode nueva.
+        if (static_cast<int>(salida.size()) > ancho) {
+            salida.resize(static_cast<size_t>(ancho));
+        }
+
+        moverCursor(x, y);
+        cout << salida;
+
+        const int espaciosRestantes =
+            ancho - static_cast<int>(salida.size());
+
+        if (espaciosRestantes > 0) {
+            cout << string(static_cast<size_t>(espaciosRestantes), ' ');
+        }
+
+        cout.flush();
+    }
+
     inline void limpiarLinea(int y, int ancho = 78) {
         moverCursor(1, y);
         cout << string(ancho, ' ');
