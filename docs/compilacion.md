@@ -1,3 +1,4 @@
+<img width="1426" height="746" alt="vs-01-instalador" src="https://github.com/user-attachments/assets/4989327e-a207-419a-adff-b6765ba5a821" />
 # Guía de compilación
 
 Este documento tiene dos guías para compilar y ejecutar el Proyecto_Black
@@ -16,7 +17,8 @@ Carga de trabajo:            **Desarrollo para el escritorio con C++**
 Estándar de C++:             C++20, ya viene configurado en el proyecto
 Git:                         Solo si se clona el repositorio en lugar de descargar ZIP
 
-(Imagen)
+<img width="1426" height="746" alt="vs-01-instalador" src="https://github.com/user-attachments/assets/ffdfb327-ea79-4750-af23-65ba633e6960" />
+
 
 Si el instalador no muestra la carga de trabajo,abra Visual Studio Installer-->Modificar y marquela.
 
@@ -27,32 +29,44 @@ cd Proyecto_Black
 
 #### **Opcion B:descargar el ZIP**
 En la  pagina del repositorio en GitHub, presione Code-->**Download ZIP** y extraiga la carpeta completa. No mueva el archivo de lugar.
-(Imagen)
+
+<img width="1327" height="906" alt="vs-02-descargar" src="https://github.com/user-attachments/assets/c76c48dc-b018-427f-85a8-03fc5b37861a" />
+
 
 ### **2.3 Abrir la solucion**
 1. Abra Visual Studio y elija **Abrir un proyecto o una solución** , ejemplo: *Archivo*-->*Abrir*-->*Proyecto* o *solucion*.
 2. Seleccione el archivo *Proyecto_Black.slnx* que esta en la carpeta raíz del repositorio.
-(Imagen)
 
-3.En el *Explorador de soluciones* debe aparecer el proyecto **Proyecto_Black** con los archivos .h y .cpp de la carpeta *src*
-(Imagen)
+<img width="1912" height="600" alt="vs-03-abrir-solucion" src="https://github.com/user-attachments/assets/c134c7f7-b137-4f55-9aa5-0212357fe10a" />
+
+
+3.En el *Explorador de soluciones* debe aparecer el proyecto **Proyecto_Black** con los archivos .h y .cpp de la carpeta *src*}
+
+<img width="1917" height="1021" alt="vs-04-explorador" src="https://github.com/user-attachments/assets/7169f7b6-01d7-496c-aff1-ea0f482540c6" />
+
 
 ### **2.4 Elegir la configuracion**
 En la barra de herramientas superior seleccione:
 -Configuracion:**Debug**
 -Plataforma:**x64**
-(Imagen)
+
+<img width="1917" height="82" alt="vs-05-configuracion" src="https://github.com/user-attachments/assets/cc550a4e-719e-41f2-9b52-b5f5b7c449c3" />
+
+
 
 ### **2.5 Compilar**
 1.Menu **Compilar-->Compilar solución**, tambien se puede utilizar el atajo *Ctrl+Shift+B.
 2.Revise la ventana **Salida**. La compilacion fue exitosa si termina con una linea como:
 
 ====*Compilar:1 correctos, 0 erroneos, 0 actualizados, 0 omitidos*====
-(Imagen)
+
+<img width="1067" height="192" alt="vs-06-compilacion-ok" src="https://github.com/user-attachments/assets/26cf0c0c-61db-4c44-a79a-378319697612" />
+
 El ejecutable queda en *x64\Debug\Proyecto_Black.exe.*
 
 ### **2.6 Ejecutar**
 Presione **Ctrl+F5**:*Depurar-->Iniciar sin depurar. Se abre una ventana de consola con el juego. Con *Ctrl+F5* la consola no se cierra sola al terminar.
+
 (Imagen)
 
 Con F5 (con depuracion) la consola puede cerrarse apenas termina el programa.
