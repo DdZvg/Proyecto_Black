@@ -16,8 +16,7 @@ Carga de trabajo:            **Desarrollo para el escritorio con C++**
 Estándar de C++:             C++20, ya viene configurado en el proyecto
 Git:                         Solo si se clona el repositorio en lugar de descargar ZIP
 
-<img width="1426" height="746" alt="vs-01-instalador" src="https://github.com/user-attachments/assets/ffdfb327-ea79-4750-af23-65ba633e6960" />
-
+<img width="745" height="574" alt="vs-07-ejecucion png" src="https://github.com/user-attachments/assets/4647eb85-e708-4deb-b1dc-9262098d2542" />
 
 Si el instalador no muestra la carga de trabajo,abra Visual Studio Installer-->Modificar y marquela.
 
