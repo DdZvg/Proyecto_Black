@@ -26,7 +26,7 @@ El programa corre en la terminal y reproduce las reglas de una mesa de casino: a
 ## Tecnologías y requisitos
 
 - **Lenguaje:** C++ (estándar C++17 / C++20).
-- **Entorno de compilación:** Visual Studio 2022 con la carga de trabajo *Desarrollo para el escritorio con C++*.
+- **Entorno de compilación:** Visual Studio 2022 hasta 2026  con la carga de trabajo *Desarrollo para el escritorio con C++*.
 - **Sistema operativo:** Windows (utiliza `SetConsoleOutputCP(CP_UTF8)` y `ENABLE_VIRTUAL_TERMINAL_PROCESSING` para caracteres y colores ANSI en la consola).
 - **Control de versiones:** Git y GitHub.
 
