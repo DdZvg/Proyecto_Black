@@ -66,7 +66,8 @@ El ejecutable queda en *x64\Debug\Proyecto_Black.exe.*
 ### **2.6 Ejecutar**
 Presione **Ctrl+F5**:*Depurar-->Iniciar sin depurar. Se abre una ventana de consola con el juego. Con *Ctrl+F5* la consola no se cierra sola al terminar.
 
-(Imagen)
+<img width="11850" height="9239" alt="vs-07-ejecucion png" src="https://github.com/user-attachments/assets/efbcf106-223b-4800-8479-980110373809" />
+
 
 Con F5 (con depuracion) la consola puede cerrarse apenas termina el programa.
 
