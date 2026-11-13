@@ -58,21 +58,9 @@ Los archivos fuente se encuentran en el directorio `src/`:
 
 ## Cómo compilar y ejecutar
 
-### Opción 1: Desde Visual Studio (recomendado)
+---
+Para compilar consulta **`docs/compilacion.md`**
+Además Para una guía de como jugar consulta **`docs/juego.md`**
+ 
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/DdZvg/Proyecto_Black.git
-   ```
-2. Abre el archivo de solución `Proyecto_Black.slnx` (o `Proyecto_Black.vcxproj`) en Visual Studio.
-3. Elige la configuración **Debug** o **Release** en plataforma **x64**.
-4. Compila la solución con `Ctrl + Shift + B` (o menú *Compilar > Compilar solución*).
-5. Inicia el programa con `Ctrl + F5`.
-
-### Opción 2: Desde terminal (g++ / MinGW con soporte C++17)
-
-```bash
-g++ -std=c++17 -Wall -Wextra -Isrc src/*.cpp -o blackjack.exe
-./blackjack.exe
-```
 
