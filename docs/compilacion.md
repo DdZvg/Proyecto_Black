@@ -4,6 +4,109 @@ Este documento tiene dos guías para compilar y ejecutar el Proyecto_Black
 
 ## Parte 1. Compilacion con cl
 
+### **1.1 Requisitos**
+
+Para compilar el proyecto desde la consola se necesitan los siguientes requisitos:
+
+| **Requisito** | **Detalle** |
+|---|---|
+| Sistema operativo | Windows 10 u 11 |
+| Visual Studio | Visual Studio 2026 con las herramientas de compilación de C++ instaladas. |
+| Carga de trabajo | **Desarrollo para el escritorio con C++** |
+| Consola | **x64 Native Tools Command Prompt for VS 2026** |
+| Estándar de C++ | C++17 para esta compilación. El proyecto de Visual Studio está configurado con C++20. |
+| Código fuente | Tener descargado o clonado el repositorio completo de **Proyecto_Black**. |
+
+### **1.2 Abrir la consola de compilación**
+
+1. Abra el menú de **Inicio** de Windows.
+2. Busque **x64 Native Tools Command Prompt for VS 2026** y abra la consola.
+3. Para verificar que el compilador funciona correctamente, escriba el siguiente comando:
+
+```cmd
+cl
+```
+
+Si el compilador está instalado correctamente, aparecerá información sobre la versión de Microsoft C/C++.
+
+Es normal que aparezca el mensaje `uso: cl [...]`, ya que todavía no se ha indicado ningún archivo para compilar.
+
+<img width="1277" height="688" alt="cl-01-verificar-y-archivos" src="https://github.com/user-attachments/assets/effa295c-f526-4b9b-9da8-18c624f49c1a" />
+
+
+### **1.3 Ubicar los archivos del proyecto**
+
+1. Desde la consola, ingrese a la carpeta principal del proyecto utilizando el siguiente comando:
+
+```cmd
+cd /d C:\Users\yoyce\source\repos\Proyecto_Black
+```
+
+La ruta anterior corresponde a la ubicación utilizada para esta guía. En otra computadora debe cambiarse por la ubicación donde se descargó o clonó el repositorio.
+
+2. Para encontrar los archivos de código fuente, escriba:
+
+```cmd
+dir /s /b *.cpp
+```
+
+3. En la consola aparecerán los archivos `.cpp` del proyecto, como `main.cpp`, `Carta.cpp`, `Mazo.cpp`, `Mano.cpp` y las demás clases utilizadas para el funcionamiento del juego.
+
+Estos archivos se encuentran dentro de la carpeta `src`.
+
+### **1.4 Compilar el proyecto**
+
+1. Desde la carpeta principal de **Proyecto_Black**, escriba el siguiente comando:
+
+```cmd
+cl /EHsc /std:c++17 /Fe:Blackjack.exe src\*.cpp
+```
+
+2. El compilador comenzará a procesar todos los archivos `.cpp` del proyecto. Cada parte del comando cumple una función:
+
+| **Comando** | **Función** |
+|---|---|
+| `cl` | Ejecuta el compilador de Microsoft C/C++. |
+| `/EHsc` | Activa el manejo de excepciones de C++. |
+| `/std:c++17` | Utiliza el estándar C++17 para compilar. |
+| `/Fe:Blackjack.exe` | Establece el nombre del archivo ejecutable. |
+| `src\*.cpp` | Compila los archivos `.cpp` que se encuentran en la carpeta `src`. |
+
+3. Revise la información de la consola. Si no aparecen errores que impidan la compilación, se generará el archivo `Blackjack.exe` en la carpeta principal del proyecto.
+
+<img width="1920" height="1080" alt="cl-02-compilacion" src="https://github.com/user-attachments/assets/dc565cad-b9fb-48d7-be8e-3338d000b736" />
+
+
+**Nota:** Durante la compilación pueden aparecer advertencias `C4566` relacionadas con los caracteres de las cartas y la página de códigos de Windows. Estas advertencias no impidieron generar el ejecutable.
+
+Para utilizar el estándar C++20, configurado en la solución de Visual Studio, puede sustituirse `/std:c++17` por `/std:c++20`.
+
+### **1.5 Ejecutar**
+
+1. Cuando termine la compilación, escriba el siguiente comando en la misma consola:
+
+```cmd
+Blackjack.exe
+```
+
+2. Presione **Enter**. Si el programa se compiló correctamente, aparecerá la pantalla de bienvenida del juego **Blackjack**.
+
+3. Presione nuevamente **Enter** para ingresar al menú principal y comenzar a jugar.
+
+<img width="862" height="521" alt="cl-03-ejecucion" src="https://github.com/user-attachments/assets/857b634e-ede6-4108-9d9b-cf5104d1dc3a" />
+
+
+### **1.6 Problemas comunes**
+
+| **Problema** | **Causa** | **Solución** |
+|---|---|---|
+| `'cl' no se reconoce como un comando` | La consola no tiene configuradas las herramientas de C++. | Abra **x64 Native Tools Command Prompt for VS 2026** y verifique que las herramientas de C++ estén instaladas. |
+| `fatal error C1083: no se puede abrir '*.cpp'` | Se intentó compilar desde una carpeta que no contiene los archivos `.cpp`. | Desde la carpeta principal del proyecto, utilice `src\*.cpp` en lugar de `*.cpp`. |
+| Aparecen advertencias `C4566` | Algunos caracteres no pueden representarse en la página de códigos actual. | Estas advertencias no impiden compilar. Puede probar agregando `/utf-8` al comando de compilación. |
+| El archivo `Blackjack.exe` no aparece | Hubo errores durante la compilación o se utilizó una ruta incorrecta. | Revise los errores mostrados en la consola y verifique que los archivos estén dentro de la carpeta `src`. |
+| Las cartas muestran símbolos incorrectos | La consola puede utilizar una codificación incompatible con los caracteres del juego. | Si el programa utiliza UTF-8, pruebe el comando `chcp 65001` antes de ejecutar el juego. |
+
+
 
 ## **Parte 2.Compilación con Visual Studio**
 
