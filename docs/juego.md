@@ -49,6 +49,7 @@ Toda la ronda ocurre sobre una sola mesa que se actualiza en tiempo real, sin ca
 
 Las opciones se muestran solo cuando están disponibles (por ejemplo, doblar y dividir requieren exactamente dos cartas).
 <img width="892" height="703" alt="image" src="https://github.com/user-attachments/assets/c0b96d6f-5dfb-49d2-9de4-2418245a65c6" />
+
 ** En este caso pedimos una carta y las opciones disponibles son p (Pedir) o s (Sentarse)**
 
 ## 4. Turno del crupier
