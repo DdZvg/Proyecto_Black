@@ -1,101 +1,78 @@
-# BlackProject — Blackjack en C++
+# BlackProject - Grupo #2
 
-Aplicación de consola en C++ que reúne los componentes iniciales de un juego de Blackjack: cartas, zapato de varios mazos, manos, jugadores, crupier, validación de entradas y pantallas de menú. El proyecto está organizado como solución de Visual Studio y utiliza C++20.
 
-> **Estado del proyecto:** en desarrollo. El ejecutable corre actualmente una **demostración** del zapato de 6 mazos: crear, barajar, repartir y calcular el valor de una mano. El flujo completo de una partida todavía no está implementado.
+Juego de Blackjack para consola desarrollado en C++ como proyecto final del curso Programación 1 en la Universidad Nacional de Costa Rica (Sede Regional Chorotega, Campus Nicoya).
 
-## Características implementadas
+El programa corre en la terminal y reproduce las reglas de una mesa de casino: admite de 1 a 7 jugadores simultáneos, barajas configurables (zapato de N mazos), apuestas con fichas, reparto en vivo y decisiones individuales por turno.
 
-- Representación de cartas con palo, valor, puntos, estado oculto y dibujo en consola.
-- Creación y barajado aleatorio de un zapato de **N mazos de 52 cartas** (6 mazos = 312 cartas para Blackjack).
-- Cálculo de puntos de una mano, con ajuste del As de 11 a 1 cuando se supera 21.
-- Clases para participantes, jugador y crupier, incluida lógica básica de fichas y apuestas.
-- Soporte para varias manos por participante (base para la acción de dividir).
-- Menú de bienvenida, pantalla de reglas y captura validada de datos.
-- Demostración en consola del reparto inicial y el cálculo de puntos.
+---
 
-## Tecnologías
+## Qué incluye el juego
 
-- C++20
-- Visual Studio con herramientas de desarrollo para C++ de escritorio
-- Windows 10 SDK (según la configuración del proyecto)
+- **Mesa:** de 1 a 7 participantes por partida, cada uno con saldo inicial de 1000 fichas y registro de nombre.
+- **Zapato configurable:** barajado de 1 a N mazos de 52 cartas (por ejemplo, 6 mazos para 312 cartas). Se mezcla automáticamente al inicio y se rebaraja cuando se agotan las cartas.
+- **Acciones completas de Blackjack:**
+  - *Pedir carta* (`p`) y *Plantarse* (`s`).
+  - *Doblar apuesta* (`d`): disponible en la mano inicial de dos cartas si el jugador cuenta con saldo suficiente; recibe exactamente una carta adicional y se planta.
+  - *Dividir pares* (`v`): si las dos primeras cartas tienen el mismo valor numérico, separa la jugada en dos manos independientes con apuestas iguales.
+  - *Seguro*: ofrecido a los jugadores cuando la carta visible del dealer es un As. Paga 2:1 si el dealer completa Blackjack natural.
+- **Lógica del dealer:** juega con una carta oculta hasta el final de la ronda y pide carta obligatoriamente mientras sume menos de 17 puntos.
+- **Pagos de ronda:** victoria estándar 1:1, Blackjack natural 3:2 y devolución de la apuesta en empates.
+- **Interfaz en consola:** dibujo de cartas en bloques con palos (♠, ♥, ♦, ♣), colores diferenciados por palo y refresco posicionado mediante códigos de escape ANSI.
+- **Validación de entradas:** control de tipos y rangos en números y caracteres para evitar cierres abruptos por entradas no válidas.
 
-El proyecto no declara dependencias externas de terceros. La solución utiliza configuraciones Debug y Release para Win32 y x64.
+---
 
-## Requisitos
+## Tecnologías y requisitos
 
-1. Windows y Visual Studio con la carga de trabajo **Desarrollo para el escritorio con C++**.
-2. Un compilador compatible con C++20.
-3. El SDK de Windows requerido por la configuración local de Visual Studio.
+- **Lenguaje:** C++ (estándar C++17 / C++20).
+- **Entorno de compilación:** Visual Studio 2022 con la carga de trabajo *Desarrollo para el escritorio con C++*.
+- **Sistema operativo:** Windows (utiliza `SetConsoleOutputCP(CP_UTF8)` y `ENABLE_VIRTUAL_TERMINAL_PROCESSING` para caracteres y colores ANSI en la consola).
+- **Control de versiones:** Git y GitHub.
 
-## Compilar y ejecutar
+No requiere librerías externas de terceros; se apoya únicamente en la biblioteca estándar de C++ (`<vector>`, `<string>`, `<algorithm>`, `<iostream>`, `<limits>`) y encabezados básicos del sistema para la consola.
+
+---
+
+## Estructura del código
+
+Los archivos fuente se encuentran en el directorio `src/`:
+
+| Archivo | Responsabilidad |
+| :--- | :--- |
+| `main.cpp` | Punto de entrada, inicialización de consola y bucle del menú principal. |
+| `blackJackGame.h` / `.cpp` | Coordinador de la partida: administración de rondas, turnos, pagos y dibujo de la mesa. |
+| `Participante.h` / `.cpp` | Clase base abstracta que gestiona el nombre y la colección de manos. |
+| `Jugador.h` / `.cpp` | Hereda de `Participante`; gestiona la lógica de juego del usuario y la división de manos. |
+| `Dealer.h` / `.cpp` | Hereda de `Participante`; administra la carta oculta y las reglas fijas de la banca (pedir con <17). |
+| `Mano.h` / `.cpp` | Contiene las cartas de una jugada, calcula puntos (ajuste dinámico del As entre 11 y 1) y almacena apuestas. |
+| `Mazo.h` / `.cpp` | Genera las barajas, las mezcla aleatoriamente y entrega cartas. |
+| `Carta.h` / `.cpp` | Representa el palo, valor, puntos, visibilidad y el dibujo individual en bloques de texto. |
+| `Menu.h` / `.cpp` | Muestra la bienvenida, pantalla de reglas y recopila la configuración inicial de la partida. |
+| `Validador.h` / `.cpp` | Métodos estáticos para leer enteros, caracteres y cadenas con validación de rangos. |
+| `Consola.h` | Control del cursor en pantalla, limpieza de zonas específicas y habilitación de secuencias ANSI. |
+| `Colores.h` | Constantes de escape ANSI para colores de texto en terminal. |
+| `ResultadoMano.h` | Enumeración con los estados de cierre de mano (`Pendiente`, `Gana`, `BlackJack`, `Empata`, `Pierde`). |
+
+---
+
+## Cómo compilar y ejecutar
+
+### Opción 1: Desde Visual Studio (recomendado)
 
 1. Clona el repositorio:
-
    ```bash
    git clone https://github.com/DdZvg/Proyecto_Black.git
-   cd Proyecto_Black
    ```
+2. Abre el archivo de solución `Proyecto_Black.slnx` (o `Proyecto_Black.vcxproj`) en Visual Studio.
+3. Elige la configuración **Debug** o **Release** en plataforma **x64**.
+4. Compila la solución con `Ctrl + Shift + B` (o menú *Compilar > Compilar solución*).
+5. Inicia el programa con `Ctrl + F5`.
 
-2. Abre `Proyecto_Black.slnx` en Visual Studio.
-3. Selecciona la configuración **Debug** o **Release** y la plataforma **x64** (recomendado).
-4. Compila la solución con **Compilar > Compilar solución** (`Ctrl+Shift+B`).
-5. Ejecuta el proyecto de inicio con `F5` o `Ctrl+F5`.
+### Opción 2: Desde terminal (g++ / MinGW con soporte C++17)
 
-## Demostración
-
-Al ejecutar, `main.cpp` llama a `correrDemo()`, que:
-
-1. Crea un zapato de 6 mazos (`Mazo zapato(6)`) y muestra que contiene 312 cartas.
-2. Baraja el zapato.
-3. Reparte dos cartas al jugador y dos al crupier (quedan 308 cartas).
-4. Dibuja las manos en consola, con la primera carta del crupier oculta.
-5. Muestra los puntos calculados con `Mano::calcularPuntos()`.
-
-## Estructura del proyecto
-
-```
-Proyecto_Black/
-├── .gitignore                       # Binarios y archivos de IDE ignorados
-├── Proyecto_Black.slnx              # Solución de Visual Studio
-├── Proyecto_Black.vcxproj           # Proyecto de Visual Studio
-├── Proyecto_Black.vcxproj.filters
-├── docs/                            # Documentación del proyecto
-└── src/                             # Código fuente del proyecto
-    ├── main.cpp                     # Punto de entrada y demostración
-    ├── Consola.h                    # Utilidades de consola (colores, cursor, limpiar pantalla)
-    ├── Carta.h / Carta.cpp          # Modelo y representación visual de una carta
-    ├── Mazo.h / Mazo.cpp            # Creación, barajado y extracción de cartas (zapato)
-    ├── Mano.h / Mano.cpp            # Cartas de una mano y cálculo de puntos
-    ├── Participante.h / .cpp        # Clase base de participantes
-    ├── Jugador.h / Jugador.cpp      # Fichas y apuestas del jugador
-    ├── Dealer.h / Dealer.cpp        # Comportamiento básico del crupier
-    └── blackJackGame.h / .cpp       # Esqueleto del flujo de juego
+```bash
+g++ -std=c++17 -Wall -Wextra -Isrc src/*.cpp -o blackjack.exe
+./blackjack.exe
 ```
 
-## Reglas representadas en la interfaz
-
-La pantalla informativa del menú describe reglas típicas de Blackjack, entre ellas los valores de las cartas, el objetivo de llegar a 21 sin excederlo, y las acciones de pedir, plantarse, doblar, dividir y contratar seguro. También presenta pagos de referencia para victorias y Blackjack natural.
-
-> **Importante:** esa pantalla es informativa y no implica que todas esas acciones o pagos estén implementados en el motor. Varios métodos de `BlackJackGame` son únicamente esqueletos: la ejecución de rondas, los turnos, la determinación del ganador y el reinicio aún no tienen lógica funcional.
-
-## Pruebas disponibles
-
-- `testMenu` contiene pruebas interactivas de la bienvenida, la selección del menú, la visualización de reglas y la captura de cantidad de jugadores, nombre y cantidad de mazos.
-- `testCarta` contiene una prueba visual de cartas, accesible mediante `ejecutarPruebasCarta()`.
-
-Ninguna de las dos es invocada por el `main` actual, que ejecuta solo la demostración. El repositorio no incluye por ahora un framework de pruebas automatizadas.
-
-## Notas de implementación
-
-- `Mazo` recibe el número de mazos en su constructor: `Mazo(1)` genera 52 cartas y `Mazo(6)` genera el zapato de 312 cartas en un único vector, por lo que `tomarCarta()` no necesita pasar de un mazo a otro.
-- `BlackJackGame` crea en su constructor un zapato de 6 mazos.
-- `Mazo::tomarCarta()` no valida si el zapato está vacío; antes de llamarlo conviene revisar `cartasRestantes()`.
-- Aún no se rebaraja el zapato cuando quedan pocas cartas.
-- La interfaz usa caracteres Unicode y control de consola para mostrar cartas. La apariencia puede variar según la terminal y su configuración de codificación.
-
-## Próximos pasos
-
-- Implementar `iniciarRonda()`, `turnoJugador()`, `turnoDealer()`, `determinarGanador()` y `resetearRonda()` en `BlackJackGame`.
-- Conectar el menú con el flujo de juego.
-- Implementar dividir, seguro y rebarajado del zapato.
