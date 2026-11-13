@@ -9,11 +9,13 @@ using namespace std;
 class Validador
 {
 public:
-	// Lee un entero dentro de un rango [minimo, maximo]
+	// Lee un entero dentro de un rango [minimo, maximo].
+	// No acepta lineas vacias, con solo espacios/tabuladores ni con texto extra.
 	static int leerEntero(const string& mensaje, int minimo, int maximo);
-	// Lee un carácter que coincida con una lista de caracteres válidos (ej: "sSnN")
+	// Lee un carácter que coincida con una lista de caracteres válidos (ej: "sSnN").
+	// No acepta lineas vacias ni con solo espacios/tabuladores.
 	static char leerCaracter(const string& mensaje, const string& opcionesValidas);
-	// Lee un texto que no esté vacío
+	// Lee un texto que no esté vacío (recorta espacios/tabuladores de los extremos).
 	static string leerTexto(const string& mensaje);
 };
 

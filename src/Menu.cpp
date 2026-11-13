@@ -2,17 +2,16 @@
 #include <iostream>
 #include <string>
 #include "Consola.h"
-#include"Colores.h"
 #include "Validador.h"
 #include "Jugador.h"
 using namespace std;
 
 Menu::Menu(string titulo) {
-	this->titulo = titulo;
+    this->titulo = titulo;
 }
 void Menu::mostrarBienvenida() const {
     // Encabezado Principal con Banner ASCII
-	Consola::limpiarPantalla();
+    Consola::limpiarPantalla();
     cout << "=======================================================================\n";
     cout << "  ██████╗ ██╗      █████╗  ██████╗██╗  ██╗   ██████╗ ██████╗ \n";
     cout << "  ██╔══██╗██║     ██╔══██╗██╔════╝██║ ██╔╝   ██╔══██╗██╔══██╗\n";
@@ -21,7 +20,7 @@ void Menu::mostrarBienvenida() const {
     cout << "  ██████╔╝███████╗██║  ██║╚██████╗██║  ██╗   ██║     ██║  ██║\n";
     cout << "  ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝     ╚═╝  ╚═╝\n";
     cout << "=======================================================================\n";
-    cout << "                    ¡ BIENVENIDO A "<< this->titulo << " !\n";
+    cout << "                    ¡ BIENVENIDO A " << this->titulo << " !\n";
     cout << "                       El juego clásico de 21                          \n";
     cout << "=======================================================================\n\n";
 
@@ -147,17 +146,8 @@ int Menu::solicitarApuesta(const Jugador& jugador) const {
     cout << "\n  ┌─────────────────────────────────────────────────────────────────┐\n";
     cout << "  │  Apuesta inicial                                                │\n";
     cout << "  └─────────────────────────────────────────────────────────────────┘\n";
-    cout << "  Jugador: " << jugador.getNombre() << "\n";
-    cout << "  Fichas disponibles: " << jugador.getFichas() << "\n\n";
+    cout << "  Jugador: " << jugador.getNombre() << "\n\n";
 
-    // Sin fichas no hay apuesta posible; el juego debe terminar la partida.
-    if (jugador.getFichas() <= 0) {
-        return 0;
-    }
-
-    return Validador::leerEntero(
-        "  >> Ingrese su apuesta (1-" + to_string(jugador.getFichas()) + "): ",
-        1,
-        jugador.getFichas()
-    );
+    // El saldo lo administra BlackJackGame; aqui solo se valida el rango de la apuesta.
+    return Validador::leerEntero("  >> Ingrese su apuesta (10-500): ", 10, 500);
 }

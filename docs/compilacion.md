@@ -16,7 +16,7 @@ Carga de trabajo:            **Desarrollo para el escritorio con C++**
 Estándar de C++:             C++20, ya viene configurado en el proyecto
 Git:                         Solo si se clona el repositorio en lugar de descargar ZIP
 
-<img width="1426" height="746" alt="vs-01-instalador" src="https://github.com/user-attachments/assets/ffdfb327-ea79-4750-af23-65ba633e6960" />
+<img width="1426" height="746" alt="vs-01-instalador" src="https://github.com/user-attachments/assets/0035119b-28d1-4e41-9bba-7ca050397940" />
 
 
 Si el instalador no muestra la carga de trabajo,abra Visual Studio Installer-->Modificar y marquela.
@@ -66,7 +66,7 @@ El ejecutable queda en *x64\Debug\Proyecto_Black.exe.*
 ### **2.6 Ejecutar**
 Presione **Ctrl+F5**:*Depurar-->Iniciar sin depurar. Se abre una ventana de consola con el juego. Con *Ctrl+F5* la consola no se cierra sola al terminar.
 
-(Imagen)
+<img width="745" height="574" alt="vs-07-ejecucion png" src="https://github.com/user-attachments/assets/4647eb85-e708-4deb-b1dc-9262098d2542" />
 
 Con F5 (con depuracion) la consola puede cerrarse apenas termina el programa.
 

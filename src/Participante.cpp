@@ -10,7 +10,7 @@ Participante::Participante(const string& nombre) //guarda el nombre y crea la pr
 
 //getters
 
-string Participante:: getNombre() const {
+string Participante::getNombre() const {
 	return this->nombre;
 }
 

@@ -4,7 +4,7 @@
 #include <vector>
 #include "Mano.h"
 
-class Participante{
+class Participante {
 protected:
 	string nombre;
 	vector<Mano> manos;//manos del participante, 1 al inicio, 2 si se divide
@@ -26,9 +26,6 @@ public:
 	bool tieneBlackjack() const; //es verdadero si la mano indice es un blackjack
 
 	//deja al participante con una sola mano vacia al terminar la ronda
-	virtual void limpiarManos(); 
+	virtual void limpiarManos();
 
 };
-
-
-
